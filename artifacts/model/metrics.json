@@ -1,0 +1,604 @@
+{
+  "schema_version": 1,
+  "evaluation_unit": "derived_clip",
+  "dataset_protocol": "Custom source-video-group-disjoint resplit of temporally annotated original UCF-Crime TEST videos; not the official UCF benchmark.",
+  "grouping_unit": "original_source_video",
+  "positive_label": "dataset-labelled shoplifting/concealment",
+  "pr_auc_definition": "average precision (not trapezoidal PR area)",
+  "seed": 42,
+  "feature_config": {
+    "backbone": "r3d_18",
+    "weights": "KINETICS400_V1",
+    "num_frames": 16,
+    "window_seconds": 2.0,
+    "stride_seconds": 1.0,
+    "max_windows": 0,
+    "feature_dim": 512
+  },
+  "split_method": "explicit_group_disjoint",
+  "split_counts": {
+    "train": {
+      "videos": 20,
+      "groups": 8,
+      "normal": 10,
+      "positive": 10
+    },
+    "val": {
+      "videos": 14,
+      "groups": 5,
+      "normal": 7,
+      "positive": 7
+    },
+    "test": {
+      "videos": 12,
+      "groups": 6,
+      "normal": 6,
+      "positive": 6
+    }
+  },
+  "selected_model": "frozen_transfer",
+  "neural_head_type": "temporal_gru",
+  "selection": {
+    "threshold": "maximise positive-class F1 on validation only; ties closest to 0.5",
+    "logistic_C": 1.0,
+    "early_stopping": "validation average precision",
+    "best_epoch": 2,
+    "epochs_run": 17,
+    "deployed_model": "frozen_transfer",
+    "deployment_rule": "Highest validation average precision; ties by validation F1, then mean-logistic simplicity. Test metrics are not used.",
+    "context_transfer_rule": "Compare frozen previous head and context-trained winner by validation AP, then validation F1; exact tie retains context-trained model. No test values select deployment.",
+    "frozen_transfer_baseline": "artifacts/baseline-short-clips/model.pt"
+  },
+  "models": {
+    "majority": {
+      "threshold": 0.5,
+      "train": {
+        "sample_count": 20,
+        "negative_count": 10,
+        "positive_count": 10,
+        "threshold": 0.5,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "pr_auc": 0.5,
+        "roc_auc": 0.5,
+        "confusion_matrix": [
+          [
+            10,
+            0
+          ],
+          [
+            10,
+            0
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      },
+      "val": {
+        "sample_count": 14,
+        "negative_count": 7,
+        "positive_count": 7,
+        "threshold": 0.5,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "pr_auc": 0.5,
+        "roc_auc": 0.5,
+        "confusion_matrix": [
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      },
+      "test": {
+        "sample_count": 12,
+        "negative_count": 6,
+        "positive_count": 6,
+        "threshold": 0.5,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "pr_auc": 0.5,
+        "roc_auc": 0.5,
+        "confusion_matrix": [
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      }
+    },
+    "mean_logistic": {
+      "threshold": 0.005812631438854496,
+      "train": {
+        "sample_count": 20,
+        "negative_count": 10,
+        "positive_count": 10,
+        "threshold": 0.005812631438854496,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6666666666666666,
+        "pr_auc": 0.9999999999999999,
+        "roc_auc": 1.0,
+        "confusion_matrix": [
+          [
+            0,
+            10
+          ],
+          [
+            0,
+            10
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      },
+      "val": {
+        "sample_count": 14,
+        "negative_count": 7,
+        "positive_count": 7,
+        "threshold": 0.005812631438854496,
+        "accuracy": 0.5714285714285714,
+        "balanced_accuracy": 0.5714285714285714,
+        "precision": 0.5384615384615384,
+        "recall": 1.0,
+        "f1": 0.7,
+        "pr_auc": 0.7197802197802197,
+        "roc_auc": 0.5714285714285714,
+        "confusion_matrix": [
+          [
+            1,
+            6
+          ],
+          [
+            0,
+            7
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      },
+      "test": {
+        "sample_count": 12,
+        "negative_count": 6,
+        "positive_count": 6,
+        "threshold": 0.005812631438854496,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "precision": 0.5,
+        "recall": 0.8333333333333334,
+        "f1": 0.625,
+        "pr_auc": 0.7120370370370369,
+        "roc_auc": 0.638888888888889,
+        "confusion_matrix": [
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            5
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      }
+    },
+    "mil": {
+      "threshold": 0.4228282570838928,
+      "train": {
+        "sample_count": 20,
+        "negative_count": 10,
+        "positive_count": 10,
+        "threshold": 0.4228282570838928,
+        "accuracy": 0.9,
+        "balanced_accuracy": 0.9,
+        "precision": 0.8333333333333334,
+        "recall": 1.0,
+        "f1": 0.9090909090909091,
+        "pr_auc": 0.9999999999999999,
+        "roc_auc": 1.0,
+        "confusion_matrix": [
+          [
+            8,
+            2
+          ],
+          [
+            0,
+            10
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      },
+      "val": {
+        "sample_count": 14,
+        "negative_count": 7,
+        "positive_count": 7,
+        "threshold": 0.4228282570838928,
+        "accuracy": 0.5714285714285714,
+        "balanced_accuracy": 0.5714285714285714,
+        "precision": 0.5384615384615384,
+        "recall": 1.0,
+        "f1": 0.7,
+        "pr_auc": 0.777067377067377,
+        "roc_auc": 0.673469387755102,
+        "confusion_matrix": [
+          [
+            1,
+            6
+          ],
+          [
+            0,
+            7
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      },
+      "test": {
+        "sample_count": 12,
+        "negative_count": 6,
+        "positive_count": 6,
+        "threshold": 0.4228282570838928,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "precision": 0.5,
+        "recall": 0.8333333333333334,
+        "f1": 0.625,
+        "pr_auc": 0.5909090909090909,
+        "roc_auc": 0.4722222222222222,
+        "confusion_matrix": [
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            5
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      }
+    },
+    "frozen_transfer": {
+      "threshold": 0.5,
+      "train": {
+        "sample_count": 20,
+        "negative_count": 10,
+        "positive_count": 10,
+        "threshold": 0.5,
+        "accuracy": 0.7,
+        "balanced_accuracy": 0.7,
+        "precision": 0.625,
+        "recall": 1.0,
+        "f1": 0.7692307692307693,
+        "pr_auc": 0.8480122655122654,
+        "roc_auc": 0.91,
+        "confusion_matrix": [
+          [
+            4,
+            6
+          ],
+          [
+            0,
+            10
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      },
+      "val": {
+        "sample_count": 14,
+        "negative_count": 7,
+        "positive_count": 7,
+        "threshold": 0.5,
+        "accuracy": 0.7857142857142857,
+        "balanced_accuracy": 0.7857142857142857,
+        "precision": 0.8333333333333334,
+        "recall": 0.7142857142857143,
+        "f1": 0.7692307692307693,
+        "pr_auc": 0.8047619047619048,
+        "roc_auc": 0.693877551020408,
+        "confusion_matrix": [
+          [
+            6,
+            1
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      },
+      "test": {
+        "sample_count": 12,
+        "negative_count": 6,
+        "positive_count": 6,
+        "threshold": 0.5,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "precision": 0.5,
+        "recall": 0.3333333333333333,
+        "f1": 0.4,
+        "pr_auc": 0.7041666666666665,
+        "roc_auc": 0.6944444444444445,
+        "confusion_matrix": [
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      }
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.7839161917567253,
+      "val_pr_auc": 0.7576839826839827
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.611794912815094,
+      "val_pr_auc": 0.777067377067377
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.46620485484600066,
+      "val_pr_auc": 0.7658119658119658
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.2888931218534708,
+      "val_pr_auc": 0.7705738705738705
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.10136296581476927,
+      "val_pr_auc": 0.7626373626373626
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.03537473855540156,
+      "val_pr_auc": 0.7626373626373626
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.018101617693901062,
+      "val_pr_auc": 0.7626373626373626
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.009772310196422041,
+      "val_pr_auc": 0.7626373626373626
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.007371027756016701,
+      "val_pr_auc": 0.7626373626373626
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.00593172109220177,
+      "val_pr_auc": 0.7626373626373626
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.0049406120786443354,
+      "val_pr_auc": 0.7626373626373626
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.004626519943121821,
+      "val_pr_auc": 0.7626373626373626
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.0035397584550082685,
+      "val_pr_auc": 0.7626373626373626
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.003264695280813612,
+      "val_pr_auc": 0.7626373626373626
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.002725594653747976,
+      "val_pr_auc": 0.7626373626373626
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.002445049854577519,
+      "val_pr_auc": 0.7626373626373626
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.00235266572854016,
+      "val_pr_auc": 0.7435897435897436
+    }
+  ],
+  "limitations": [
+    "Metrics apply to the declared evaluation unit, not an independently validated event-localization benchmark.",
+    "Window scores are ranking signals, not proof of shoplifting or intent.",
+    "Performance is specific to the evaluated data and grouping; dataset bias and distribution shift remain possible.",
+    "Source-file grouping does not verify independence of actors, cameras, stores or countries.",
+    "This model performs no face matching or person identification.",
+    "The original UCF test annotations were reused in a custom source-disjoint project split; these are not official UCF benchmark results.",
+    "Exploratory whole-incident follow-up reuses previously evaluated source groups; it is not a pristine new holdout. No shelf/pocket stage ground truth is available.",
+    "The frozen transferred head was trained on short incident clips; longer inference context does not turn it into a shelf-to-pocket stage detector."
+  ],
+  "selective_decision": {
+    "policy_source": "validation only",
+    "counts_before_technical_visibility_checks": {
+      "train": {
+        "sample_count": 20,
+        "coverage": 0.6,
+        "insufficient_evidence_count": 8,
+        "review_count": 12,
+        "review_precision": 0.8333333333333334,
+        "positive_review_recall": 1.0,
+        "accuracy_among_decided": 0.8333333333333334
+      },
+      "val": {
+        "sample_count": 14,
+        "coverage": 0.21428571428571427,
+        "insufficient_evidence_count": 11,
+        "review_count": 3,
+        "review_precision": 1.0,
+        "positive_review_recall": 0.42857142857142855,
+        "accuracy_among_decided": 1.0
+      },
+      "test": {
+        "sample_count": 12,
+        "coverage": 0.08333333333333333,
+        "insufficient_evidence_count": 11,
+        "review_count": 1,
+        "review_precision": 1.0,
+        "positive_review_recall": 0.16666666666666666,
+        "accuracy_among_decided": 1.0
+      }
+    },
+    "caveat": "Empirical bounds and eight-second negative-context safeguard do not verify physical stages or guarantee precision. Report coverage alongside conditional accuracy."
+  }
+}

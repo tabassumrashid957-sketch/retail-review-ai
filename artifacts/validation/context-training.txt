@@ -1,0 +1,6 @@
+Epoch 1/100: train loss 0.7839; validation PR-AUC 0.7577
+Epoch 10/100: train loss 0.0059; validation PR-AUC 0.7626
+MIL training complete after 17 epochs; restored epoch 2 with validation PR-AUC 0.7771.
+Deployment selected from validation only: mil
+Saved checkpoint and video-level metrics to artifacts/model-context-candidate
+Deployed mil; test PR-AUC 0.5909

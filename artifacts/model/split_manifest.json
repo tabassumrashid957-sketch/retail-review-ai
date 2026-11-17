@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "seed": 42,
+  "records": [
+    {
+      "id": "7af64fd7e96f81da-context-normal-2901-3472",
+      "group": "ucf:Shoplifting001_x264.mp4",
+      "label": 0,
+      "split": "test"
+    },
+    {
+      "id": "7af64fd7e96f81da-context-positive-1489-2060",
+      "group": "ucf:Shoplifting001_x264.mp4",
+      "label": 1,
+      "split": "test"
+    },
+    {
+      "id": "b752e28446de1559-context-normal-1298-1629",
+      "group": "ucf:Shoplifting005_x264.mp4",
+      "label": 0,
+      "split": "train"
+    },
+    {
+      "id": "b752e28446de1559-context-positive-659-990",
+      "group": "ucf:Shoplifting005_x264.mp4",
+      "label": 1,
+      "split": "train"
+    },
+    {
+      "id": "0cb77fc4ba04b0ba-context-normal-2529-2860",
+      "group": "ucf:Shoplifting007_x264.mp4",
+      "label": 0,
+      "split": "train"
+    },
+    {
+      "id": "0cb77fc4ba04b0ba-context-positive-489-820",
+      "group": "ucf:Shoplifting007_x264.mp4",
+      "label": 1,
+      "split": "train"
+    },
+    {
+      "id": "0cb77fc4ba04b0ba-context-normal-3524-3935",
+      "group": "ucf:Shoplifting007_x264.mp4",
+      "label": 0,
+      "split": "train"
+    },
+    {
+      "id": "0cb77fc4ba04b0ba-context-positive-4569-4980",
+      "group": "ucf:Shoplifting007_x264.mp4",
+      "label": 1,
+      "split": "train"
+    },
+    {
+      "id": "717d68d3671d3f76-context-normal-2222-2513",
+      "group": "ucf:Shoplifting010_x264.mp4",
+      "label": 0,
+      "split": "train"
+    },
+    {
+      "id": "717d68d3671d3f76-context-positive-689-980",
+      "group": "ucf:Shoplifting010_x264.mp4",
+      "label": 1,
+      "split": "train"
+    },
+    {
+      "id": "717d68d3671d3f76-context-normal-89-630",
+      "group": "ucf:Shoplifting010_x264.mp4",
+      "label": 0,
+      "split": "train"
+    },
+    {
+      "id": "717d68d3671d3f76-context-positive-1489-2030",
+      "group": "ucf:Shoplifting010_x264.mp4",
+      "label": 1,
+      "split": "train"
+    },
+    {
+      "id": "6da5c049175da913-context-normal-854-1125",
+      "group": "ucf:Shoplifting015_x264.mp4",
+      "label": 0,
+      "split": "val"
+    },
+    {
+      "id": "6da5c049175da913-context-positive-1949-2220",
+      "group": "ucf:Shoplifting015_x264.mp4",
+      "label": 1,
+      "split": "val"
+    },
+    {
+      "id": "ad596b23c277435d-context-normal-1011-1222",
+      "group": "ucf:Shoplifting016_x264.mp4",
+      "label": 0,
+      "split": "train"
+    },
+    {
+      "id": "ad596b23c277435d-context-positive-569-780",
+      "group": "ucf:Shoplifting016_x264.mp4",
+      "label": 1,
+      "split": "train"
+    },
+    {
+      "id": "078c78d774bd1563-context-normal-85-243",
+      "group": "ucf:Shoplifting017_x264.mp4",
+      "label": 0,
+      "split": "test"
+    },
+    {
+      "id": "078c78d774bd1563-context-positive-299-457",
+      "group": "ucf:Shoplifting017_x264.mp4",
+      "label": 1,
+      "split": "test"
+    },
+    {
+      "id": "5a638d09944343ac-context-normal-4009-4250",
+      "group": "ucf:Shoplifting020_x264.mp4",
+      "label": 0,
+      "split": "test"
+    },
+    {
+      "id": "5a638d09944343ac-context-positive-2279-2520",
+      "group": "ucf:Shoplifting020_x264.mp4",
+      "label": 1,
+      "split": "test"
+    },
+    {
+      "id": "5afad2f70c4bdce2-context-normal-884-1155",
+      "group": "ucf:Shoplifting021_x264.mp4",
+      "label": 0,
+      "split": "test"
+    },
+    {
+      "id": "5afad2f70c4bdce2-context-positive-2009-2280",
+      "group": "ucf:Shoplifting021_x264.mp4",
+      "label": 1,
+      "split": "test"
+    },
+    {
+      "id": "e274320d6a97349a-context-normal-794-1065",
+      "group": "ucf:Shoplifting022_x264.mp4",
+      "label": 0,
+      "split": "val"
+    },
+    {
+      "id": "e274320d6a97349a-context-positive-209-480",
+      "group": "ucf:Shoplifting022_x264.mp4",
+      "label": 1,
+      "split": "val"
+    },
+    {
+      "id": "e274320d6a97349a-context-normal-1770-2011",
+      "group": "ucf:Shoplifting022_x264.mp4",
+      "label": 0,
+      "split": "val"
+    },
+    {
+      "id": "e274320d6a97349a-context-positive-1379-1620",
+      "group": "ucf:Shoplifting022_x264.mp4",
+      "label": 1,
+      "split": "val"
+    },
+    {
+      "id": "b733c32ae8cd3919-context-normal-424-625",
+      "group": "ucf:Shoplifting027_x264.mp4",
+      "label": 0,
+      "split": "val"
+    },
+    {
+      "id": "b733c32ae8cd3919-context-positive-1019-1220",
+      "group": "ucf:Shoplifting027_x264.mp4",
+      "label": 1,
+      "split": "val"
+    },
+    {
+      "id": "b733c32ae8cd3919-context-normal-656-1017",
+      "group": "ucf:Shoplifting027_x264.mp4",
+      "label": 0,
+      "split": "val"
+    },
+    {
+      "id": "b733c32ae8cd3919-context-positive-1409-1770",
+      "group": "ucf:Shoplifting027_x264.mp4",
+      "label": 1,
+      "split": "val"
+    },
+    {
+      "id": "d96f18f9a3669569-context-normal-74-465",
+      "group": "ucf:Shoplifting028_x264.mp4",
+      "label": 0,
+      "split": "test"
+    },
+    {
+      "id": "d96f18f9a3669569-context-positive-509-900",
+      "group": "ucf:Shoplifting028_x264.mp4",
+      "label": 1,
+      "split": "test"
+    },
+    {
+      "id": "44cf225cd1c75c88-context-normal-209-780",
+      "group": "ucf:Shoplifting029_x264.mp4",
+      "label": 0,
+      "split": "train"
+    },
+    {
+      "id": "44cf225cd1c75c88-context-positive-959-1530",
+      "group": "ucf:Shoplifting029_x264.mp4",
+      "label": 1,
+      "split": "train"
+    },
+    {
+      "id": "d686f807c4bc0622-context-normal-179-420",
+      "group": "ucf:Shoplifting033_x264.mp4",
+      "label": 0,
+      "split": "test"
+    },
+    {
+      "id": "d686f807c4bc0622-context-positive-569-810",
+      "group": "ucf:Shoplifting033_x264.mp4",
+      "label": 1,
+      "split": "test"
+    },
+    {
+      "id": "1d8c1746a8d78d47-context-normal-3539-3780",
+      "group": "ucf:Shoplifting034_x264.mp4",
+      "label": 0,
+      "split": "train"
+    },
+    {
+      "id": "1d8c1746a8d78d47-context-positive-7289-7530",
+      "group": "ucf:Shoplifting034_x264.mp4",
+      "label": 1,
+      "split": "train"
+    },
+    {
+      "id": "0a5611581cb60f68-context-normal-464-645",
+      "group": "ucf:Shoplifting037_x264.mp4",
+      "label": 0,
+      "split": "val"
+    },
+    {
+      "id": "0a5611581cb60f68-context-positive-1079-1260",
+      "group": "ucf:Shoplifting037_x264.mp4",
+      "label": 1,
+      "split": "val"
+    },
+    {
+      "id": "151e7720fbea909d-context-normal-944-1215",
+      "group": "ucf:Shoplifting039_x264.mp4",
+      "label": 0,
+      "split": "train"
+    },
+    {
+      "id": "151e7720fbea909d-context-positive-2129-2400",
+      "group": "ucf:Shoplifting039_x264.mp4",
+      "label": 1,
+      "split": "train"
+    },
+    {
+      "id": "9e4ac798b68fbdef-context-normal-5369-5670",
+      "group": "ucf:Shoplifting044_x264.mp4",
+      "label": 0,
+      "split": "val"
+    },
+    {
+      "id": "9e4ac798b68fbdef-context-positive-11009-11310",
+      "group": "ucf:Shoplifting044_x264.mp4",
+      "label": 1,
+      "split": "val"
+    },
+    {
+      "id": "d0884df09847acb6-context-normal-269-720",
+      "group": "ucf:Shoplifting049_x264.mp4",
+      "label": 0,
+      "split": "train"
+    },
+    {
+      "id": "d0884df09847acb6-context-positive-959-1410",
+      "group": "ucf:Shoplifting049_x264.mp4",
+      "label": 1,
+      "split": "train"
+    }
+  ]
+}

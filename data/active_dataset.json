@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "name": "UCF-Crime complete-incident context experiment",
+  "kind": "ucf_crime",
+  "status": "metadata_only_media_not_distributed",
+  "manifest": "data/real_retail/ucf_crime/context/manifest.csv",
+  "provenance": "data/real_retail/ucf_crime/provenance.json",
+  "source_dir": "data/real_retail/ucf_crime/source_videos",
+  "clips_dir": "data/real_retail/ucf_crime/context/clips",
+  "annotations": "data/real_retail/ucf_crime/annotations.txt",
+  "feature_dir": "artifacts/features-context",
+  "evaluation_protocol": "Exploratory follow-up reuses previous test sources; not a pristine new holdout or official UCF benchmark.",
+  "geographic_coverage": "Store countries are not consistently documented; worldwide representation is not claimed.",
+  "preparation": "whole_event_context",
+  "split_reference": "data/real_retail/ucf_crime/context/source_splits.json",
+  "neural_head_type": "temporal_gru",
+  "neural_hidden_dim": 64,
+  "frozen_transfer_checkpoint": "artifacts/baseline-short-clips/model.pt",
+  "feature_config": {
+    "backbone": "r3d_18",
+    "weights": "KINETICS400_V1",
+    "num_frames": 16,
+    "window_seconds": 2.0,
+    "stride_seconds": 1.0,
+    "max_windows": 0,
+    "feature_dim": 512
+  }
+}

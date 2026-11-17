@@ -1,0 +1,170 @@
+[
+  {
+    "file": "Shoplifting001_x264.mp4",
+    "frames": 4344,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 2000
+  },
+  {
+    "file": "Shoplifting004_x264.mp4",
+    "frames": 6673,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 4900
+  },
+  {
+    "file": "Shoplifting005_x264.mp4",
+    "frames": 1967,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 930
+  },
+  {
+    "file": "Shoplifting007_x264.mp4",
+    "frames": 5124,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 4920
+  },
+  {
+    "file": "Shoplifting010_x264.mp4",
+    "frames": 2736,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 1970
+  },
+  {
+    "file": "Shoplifting015_x264.mp4",
+    "frames": 2256,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 2160
+  },
+  {
+    "file": "Shoplifting016_x264.mp4",
+    "frames": 1483,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 720
+  },
+  {
+    "file": "Shoplifting017_x264.mp4",
+    "frames": 457,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 420
+  },
+  {
+    "file": "Shoplifting020_x264.mp4",
+    "frames": 5770,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 2460
+  },
+  {
+    "file": "Shoplifting021_x264.mp4",
+    "frames": 3551,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 2220
+  },
+  {
+    "file": "Shoplifting022_x264.mp4",
+    "frames": 2191,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 1560
+  },
+  {
+    "file": "Shoplifting027_x264.mp4",
+    "frames": 1873,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 1710
+  },
+  {
+    "file": "Shoplifting028_x264.mp4",
+    "frames": 1357,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 840
+  },
+  {
+    "file": "Shoplifting029_x264.mp4",
+    "frames": 2176,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 1470
+  },
+  {
+    "file": "Shoplifting031_x264.mp4",
+    "frames": 447,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 330
+  },
+  {
+    "file": "Shoplifting033_x264.mp4",
+    "frames": 899,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 750
+  },
+  {
+    "file": "Shoplifting034_x264.mp4",
+    "frames": 11937,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 7470
+  },
+  {
+    "file": "Shoplifting037_x264.mp4",
+    "frames": 1386,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 1200
+  },
+  {
+    "file": "Shoplifting039_x264.mp4",
+    "frames": 2803,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 2340
+  },
+  {
+    "file": "Shoplifting044_x264.mp4",
+    "frames": 14555,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 11250
+  },
+  {
+    "file": "Shoplifting049_x264.mp4",
+    "frames": 2149,
+    "fps": 30.0,
+    "width": 320,
+    "height": 240,
+    "annotation_max_end": 1350
+  }
+]

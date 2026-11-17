@@ -1,0 +1,8 @@
+torch>=2.5,<3
+torchvision>=0.20,<1
+opencv-python-headless>=4.10,<5
+scikit-learn>=1.5,<2
+numpy>=1.26,<3
+certifi>=2024.2.2
+Flask>=3.1,<4
+imageio-ffmpeg>=0.6,<1

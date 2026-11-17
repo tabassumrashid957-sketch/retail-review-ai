@@ -1,0 +1,116 @@
+{
+  "selected_using_validation_only": true,
+  "fresh_test_inference_matches_cache": 12,
+  "results": [
+    {
+      "id": "7af64fd7e96f81da-context-normal-2901-3472",
+      "label": 0,
+      "status": "insufficient_evidence",
+      "score": 0.3824353516101837,
+      "quality_issues": [],
+      "frames": 571,
+      "output": "artifacts/validation/context-inference/7af64fd7e96f81da-context-normal-2901-3472-20261117-170847-4de47f/annotated-video.mp4"
+    },
+    {
+      "id": "7af64fd7e96f81da-context-positive-1489-2060",
+      "label": 1,
+      "status": "insufficient_evidence",
+      "score": 0.47530895471572876,
+      "quality_issues": [],
+      "frames": 571,
+      "output": "artifacts/validation/context-inference/7af64fd7e96f81da-context-positive-1489-2060-20261117-170904-ebcac0/annotated-video.mp4"
+    },
+    {
+      "id": "078c78d774bd1563-context-normal-85-243",
+      "label": 0,
+      "status": "insufficient_evidence",
+      "score": 0.3060967028141022,
+      "quality_issues": [],
+      "frames": 158,
+      "output": "artifacts/validation/context-inference/078c78d774bd1563-context-normal-85-243-20261117-170921-1cd00d/annotated-video.mp4"
+    },
+    {
+      "id": "078c78d774bd1563-context-positive-299-457",
+      "label": 1,
+      "status": "insufficient_evidence",
+      "score": 0.37998366355895996,
+      "quality_issues": [],
+      "frames": 158,
+      "output": "artifacts/validation/context-inference/078c78d774bd1563-context-positive-299-457-20261117-170925-cd564d/annotated-video.mp4"
+    },
+    {
+      "id": "5a638d09944343ac-context-normal-4009-4250",
+      "label": 0,
+      "status": "insufficient_evidence",
+      "score": 0.2351876199245453,
+      "quality_issues": [],
+      "frames": 241,
+      "output": "artifacts/validation/context-inference/5a638d09944343ac-context-normal-4009-4250-20261117-170930-ef8c9c/annotated-video.mp4"
+    },
+    {
+      "id": "5a638d09944343ac-context-positive-2279-2520",
+      "label": 1,
+      "status": "insufficient_evidence",
+      "score": 0.4431719183921814,
+      "quality_issues": [],
+      "frames": 241,
+      "output": "artifacts/validation/context-inference/5a638d09944343ac-context-positive-2279-2520-20261117-170935-362c65/annotated-video.mp4"
+    },
+    {
+      "id": "5afad2f70c4bdce2-context-normal-884-1155",
+      "label": 0,
+      "status": "insufficient_evidence",
+      "score": 0.3291739225387573,
+      "quality_issues": [],
+      "frames": 271,
+      "output": "artifacts/validation/context-inference/5afad2f70c4bdce2-context-normal-884-1155-20261117-170940-e8bc85/annotated-video.mp4"
+    },
+    {
+      "id": "5afad2f70c4bdce2-context-positive-2009-2280",
+      "label": 1,
+      "status": "insufficient_evidence",
+      "score": 0.35123172402381897,
+      "quality_issues": [],
+      "frames": 271,
+      "output": "artifacts/validation/context-inference/5afad2f70c4bdce2-context-positive-2009-2280-20261117-170946-178dd1/annotated-video.mp4"
+    },
+    {
+      "id": "d96f18f9a3669569-context-normal-74-465",
+      "label": 0,
+      "status": "insufficient_evidence",
+      "score": 0.6242082118988037,
+      "quality_issues": [],
+      "frames": 391,
+      "output": "artifacts/validation/context-inference/d96f18f9a3669569-context-normal-74-465-20261117-170951-86980e/annotated-video.mp4"
+    },
+    {
+      "id": "d96f18f9a3669569-context-positive-509-900",
+      "label": 1,
+      "status": "insufficient_evidence",
+      "score": 0.5327462553977966,
+      "quality_issues": [],
+      "frames": 391,
+      "output": "artifacts/validation/context-inference/d96f18f9a3669569-context-positive-509-900-20261117-170958-329054/annotated-video.mp4"
+    },
+    {
+      "id": "d686f807c4bc0622-context-normal-179-420",
+      "label": 0,
+      "status": "insufficient_evidence",
+      "score": 0.530144989490509,
+      "quality_issues": [],
+      "frames": 241,
+      "output": "artifacts/validation/context-inference/d686f807c4bc0622-context-normal-179-420-20261117-171005-5f3ac1/annotated-video.mp4"
+    },
+    {
+      "id": "d686f807c4bc0622-context-positive-569-810",
+      "label": 1,
+      "status": "needs_review",
+      "score": 0.6693594455718994,
+      "quality_issues": [],
+      "frames": 241,
+      "output": "artifacts/validation/context-inference/d686f807c4bc0622-context-positive-569-810-20261117-171010-999826/annotated-video.mp4"
+    }
+  ],
+  "review_count": 1,
+  "inconclusive_count": 11
+}

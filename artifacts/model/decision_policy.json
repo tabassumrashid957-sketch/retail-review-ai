@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "positive_threshold": 0.641576886177063,
+  "negative_threshold": null,
+  "min_context_seconds": 8.0,
+  "target_empirical_precision": 0.9,
+  "minimum_validation_support": 3,
+  "validation_support": {
+    "positive": {
+      "count": 3,
+      "correct": 3,
+      "empirical_precision": 1.0
+    }
+  },
+  "source": "validation_only_empirical_score_bounds",
+  "caveat": "Uncalibrated model scores. Small validation support does not guarantee precision in new footage. Duration does not verify sequence completeness."
+}

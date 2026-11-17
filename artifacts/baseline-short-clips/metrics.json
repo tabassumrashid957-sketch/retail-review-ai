@@ -1,0 +1,456 @@
+{
+  "schema_version": 1,
+  "evaluation_unit": "derived_clip",
+  "dataset_protocol": "Custom source-video-group-disjoint resplit of temporally annotated original UCF-Crime TEST videos; not the official UCF benchmark.",
+  "grouping_unit": "original_source_video",
+  "positive_label": "dataset-labelled shoplifting/concealment",
+  "pr_auc_definition": "average precision (not trapezoidal PR area)",
+  "seed": 42,
+  "feature_config": {
+    "backbone": "r3d_18",
+    "weights": "KINETICS400_V1",
+    "num_frames": 16,
+    "window_seconds": 2.0,
+    "stride_seconds": 2.0,
+    "max_windows": 24,
+    "feature_dim": 512
+  },
+  "split_method": "seeded_group_disjoint_60_20_20_with_class_coverage",
+  "split_counts": {
+    "train": {
+      "videos": 62,
+      "groups": 9,
+      "normal": 31,
+      "positive": 31
+    },
+    "val": {
+      "videos": 22,
+      "groups": 6,
+      "normal": 11,
+      "positive": 11
+    },
+    "test": {
+      "videos": 20,
+      "groups": 6,
+      "normal": 10,
+      "positive": 10
+    }
+  },
+  "selected_model": "mil",
+  "selection": {
+    "threshold": "maximise positive-class F1 on validation only; ties closest to 0.5",
+    "logistic_C": 1.0,
+    "early_stopping": "validation average precision",
+    "best_epoch": 1,
+    "epochs_run": 16,
+    "deployed_model": "mil",
+    "deployment_rule": "Highest validation average precision; ties by validation F1, then mean-logistic simplicity. Test metrics are not used."
+  },
+  "models": {
+    "majority": {
+      "threshold": 0.5,
+      "train": {
+        "sample_count": 62,
+        "negative_count": 31,
+        "positive_count": 31,
+        "threshold": 0.5,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "pr_auc": 0.5,
+        "roc_auc": 0.5,
+        "confusion_matrix": [
+          [
+            31,
+            0
+          ],
+          [
+            31,
+            0
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      },
+      "val": {
+        "sample_count": 22,
+        "negative_count": 11,
+        "positive_count": 11,
+        "threshold": 0.5,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "pr_auc": 0.5,
+        "roc_auc": 0.5,
+        "confusion_matrix": [
+          [
+            11,
+            0
+          ],
+          [
+            11,
+            0
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      },
+      "test": {
+        "sample_count": 20,
+        "negative_count": 10,
+        "positive_count": 10,
+        "threshold": 0.5,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "pr_auc": 0.5,
+        "roc_auc": 0.5,
+        "confusion_matrix": [
+          [
+            10,
+            0
+          ],
+          [
+            10,
+            0
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      }
+    },
+    "mean_logistic": {
+      "threshold": 0.28346895935472854,
+      "train": {
+        "sample_count": 62,
+        "negative_count": 31,
+        "positive_count": 31,
+        "threshold": 0.28346895935472854,
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "pr_auc": 0.9999999999999998,
+        "roc_auc": 1.0,
+        "confusion_matrix": [
+          [
+            31,
+            0
+          ],
+          [
+            0,
+            31
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      },
+      "val": {
+        "sample_count": 22,
+        "negative_count": 11,
+        "positive_count": 11,
+        "threshold": 0.28346895935472854,
+        "accuracy": 0.7727272727272727,
+        "balanced_accuracy": 0.7727272727272727,
+        "precision": 0.75,
+        "recall": 0.8181818181818182,
+        "f1": 0.782608695652174,
+        "pr_auc": 0.7032483067172063,
+        "roc_auc": 0.6942148760330579,
+        "confusion_matrix": [
+          [
+            8,
+            3
+          ],
+          [
+            2,
+            9
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      },
+      "test": {
+        "sample_count": 20,
+        "negative_count": 10,
+        "positive_count": 10,
+        "threshold": 0.28346895935472854,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "precision": 0.5,
+        "recall": 0.2,
+        "f1": 0.2857142857142857,
+        "pr_auc": 0.6904670329670329,
+        "roc_auc": 0.6799999999999999,
+        "confusion_matrix": [
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      }
+    },
+    "mil": {
+      "threshold": 0.48958340287208557,
+      "train": {
+        "sample_count": 62,
+        "negative_count": 31,
+        "positive_count": 31,
+        "threshold": 0.48958340287208557,
+        "accuracy": 0.9032258064516129,
+        "balanced_accuracy": 0.9032258064516129,
+        "precision": 0.9310344827586207,
+        "recall": 0.8709677419354839,
+        "f1": 0.9,
+        "pr_auc": 0.9704038797055584,
+        "roc_auc": 0.9635796045785641,
+        "confusion_matrix": [
+          [
+            29,
+            2
+          ],
+          [
+            4,
+            27
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      },
+      "val": {
+        "sample_count": 22,
+        "negative_count": 11,
+        "positive_count": 11,
+        "threshold": 0.48958340287208557,
+        "accuracy": 0.8181818181818182,
+        "balanced_accuracy": 0.8181818181818181,
+        "precision": 1.0,
+        "recall": 0.6363636363636364,
+        "f1": 0.7777777777777778,
+        "pr_auc": 0.8755039078568492,
+        "roc_auc": 0.8181818181818182,
+        "confusion_matrix": [
+          [
+            11,
+            0
+          ],
+          [
+            4,
+            7
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      },
+      "test": {
+        "sample_count": 20,
+        "negative_count": 10,
+        "positive_count": 10,
+        "threshold": 0.48958340287208557,
+        "accuracy": 0.65,
+        "balanced_accuracy": 0.65,
+        "precision": 1.0,
+        "recall": 0.3,
+        "f1": 0.46153846153846156,
+        "pr_auc": 0.8739213564213563,
+        "roc_auc": 0.88,
+        "confusion_matrix": [
+          [
+            10,
+            0
+          ],
+          [
+            7,
+            3
+          ]
+        ],
+        "confusion_matrix_order": [
+          [
+            "true_negative",
+            "false_positive"
+          ],
+          [
+            "false_negative",
+            "true_positive"
+          ]
+        ],
+        "undefined_metrics_reason": null
+      }
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.7224274262064888,
+      "val_pr_auc": 0.8755039078568492
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.2906068176812222,
+      "val_pr_auc": 0.810645029361607
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.14157927455005026,
+      "val_pr_auc": 0.8211513531032248
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.0751390213601201,
+      "val_pr_auc": 0.8083308402827121
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.038888430052940105,
+      "val_pr_auc": 0.8159065978584696
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.021047280614091564,
+      "val_pr_auc": 0.8159065978584696
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.016487710966753038,
+      "val_pr_auc": 0.8159065978584696
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.010406545040407968,
+      "val_pr_auc": 0.8159065978584696
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.008185185758667368,
+      "val_pr_auc": 0.8159065978584696
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.005369104253928057,
+      "val_pr_auc": 0.8159065978584696
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.004545086763579504,
+      "val_pr_auc": 0.8159065978584696
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.004845771874487025,
+      "val_pr_auc": 0.8159065978584696
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.003152759500886943,
+      "val_pr_auc": 0.8159065978584696
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.0036992112495828487,
+      "val_pr_auc": 0.8159065978584696
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.0024385703971406218,
+      "val_pr_auc": 0.8159065978584696
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.0024393825404976886,
+      "val_pr_auc": 0.8159065978584696
+    }
+  ],
+  "limitations": [
+    "Metrics apply to the declared evaluation unit, not an independently validated event-localization benchmark.",
+    "Window scores are ranking signals, not proof of shoplifting or intent.",
+    "Performance is specific to the evaluated data and grouping; dataset bias and distribution shift remain possible.",
+    "Source-file grouping does not verify independence of actors, cameras, stores or countries.",
+    "This model performs no face matching or person identification.",
+    "The original UCF test annotations were reused in a custom source-disjoint project split; these are not official UCF benchmark results."
+  ]
+}

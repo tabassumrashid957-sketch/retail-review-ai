@@ -1,0 +1,172 @@
+{
+  "dataset": "UCF-Crime, temporally annotated Shoplifting subset",
+  "authors": [
+    "Waqas Sultani",
+    "Chen Chen",
+    "Mubarak Shah"
+  ],
+  "source_page": "https://www.crcv.ucf.edu/projects/real-world/",
+  "official_archive_url": "https://www.crcv.ucf.edu/data1/chenchen/UCF_Crimes.zip",
+  "official_archive_bytes": 102957372377,
+  "download_method": "Selective HTTP byte-range retrieval of official ZIP members; no mirror video bytes used",
+  "annotation_url": "https://raw.githubusercontent.com/WaqasSultani/AnomalyDetectionCVPR2018/master/Temporal_Anomaly_Annotation.txt",
+  "annotation_sha256": "3b9542413f2ed9e94f73bf0488c151b3d7d595a8d2ad30f524e9243a2ae2a17c",
+  "annotation_frame_convention": "1-based inclusive; official MATLAB evaluator uses GT(start_frame:end_frame)=1",
+  "source_partition": "Original UCF-Crime test partition (annotated Shoplifting videos only)",
+  "experiment_scope": "Any train/validation/test re-split of these sources is a custom retail-subset experiment, not official UCF-Crime benchmark performance.",
+  "real_world_claim": "The dataset authors describe these as real-world surveillance videos. Individual incidents and payment/intent were not independently verified.",
+  "geographic_coverage": "Country/store metadata is not documented in checked release materials; no worldwide representative coverage is claimed.",
+  "license": "No explicit dataset redistribution licence was found in the checked primary release materials; do not label this data CC BY or MIT.",
+  "completed_at_utc": "2026-11-16T23:03:06.123253+00:00",
+  "video_count": 21,
+  "downloaded_video_bytes": 612280691,
+  "files": [
+    {
+      "file": "Shoplifting001_x264.mp4",
+      "bytes": 35944805,
+      "sha256": "7af64fd7e96f81da3f91c9cd4bf531dc2d5968718cdb646822ea9895d71ff060",
+      "crc32": "18a6375a",
+      "cached": false
+    },
+    {
+      "file": "Shoplifting004_x264.mp4",
+      "bytes": 56620695,
+      "sha256": "c71351aad521f175593838ed3e9b6e681f51ff332cd9c2597244d239b701ed7b",
+      "crc32": "c1e5db76",
+      "cached": true
+    },
+    {
+      "file": "Shoplifting005_x264.mp4",
+      "bytes": 16275571,
+      "sha256": "b752e28446de1559726faf7ba41e1b8425e51554fb13640dccfc9906a6bd1193",
+      "crc32": "8d18dc61",
+      "cached": true
+    },
+    {
+      "file": "Shoplifting007_x264.mp4",
+      "bytes": 45436413,
+      "sha256": "0cb77fc4ba04b0bac2545354149b8ad836217688d7567f90e124210476653efd",
+      "crc32": "b7c441b5",
+      "cached": false
+    },
+    {
+      "file": "Shoplifting010_x264.mp4",
+      "bytes": 22406639,
+      "sha256": "717d68d3671d3f7638f80cc7db2e682599fceee21f15385431c569a1480d42ab",
+      "crc32": "bcfd7e3d",
+      "cached": true
+    },
+    {
+      "file": "Shoplifting015_x264.mp4",
+      "bytes": 18761721,
+      "sha256": "6da5c049175da913380978247dfd975bcc167293d6bd14530f4fc244778fd772",
+      "crc32": "0770e28c",
+      "cached": true
+    },
+    {
+      "file": "Shoplifting016_x264.mp4",
+      "bytes": 11043879,
+      "sha256": "ad596b23c277435d895b32f54800acbee2603e80af30a87ae3bbffda4ec56fd0",
+      "crc32": "72ffefa7",
+      "cached": true
+    },
+    {
+      "file": "Shoplifting017_x264.mp4",
+      "bytes": 3549517,
+      "sha256": "078c78d774bd15636a0cced866e18251bfc58d45f7268850e487d4708bad9b79",
+      "crc32": "69af9e52",
+      "cached": true
+    },
+    {
+      "file": "Shoplifting020_x264.mp4",
+      "bytes": 46703722,
+      "sha256": "5a638d09944343ac94839ebe5122ae359d07790102e43ce9377ce5c07685753f",
+      "crc32": "0fda01fc",
+      "cached": false
+    },
+    {
+      "file": "Shoplifting021_x264.mp4",
+      "bytes": 27661594,
+      "sha256": "5afad2f70c4bdce298a2b5b2ec03c11fd060be8c05a7fabd7254606285ce5d63",
+      "crc32": "42afdd06",
+      "cached": false
+    },
+    {
+      "file": "Shoplifting022_x264.mp4",
+      "bytes": 16095795,
+      "sha256": "e274320d6a97349ada9bde6b614892a0ffbc767057d6908edc246a9a3ef56374",
+      "crc32": "58925038",
+      "cached": true
+    },
+    {
+      "file": "Shoplifting027_x264.mp4",
+      "bytes": 13921810,
+      "sha256": "b733c32ae8cd39193b551804faf018b229e6aec663a8cda7944fecb6835c5a37",
+      "crc32": "ad9be6ba",
+      "cached": true
+    },
+    {
+      "file": "Shoplifting028_x264.mp4",
+      "bytes": 6804258,
+      "sha256": "d96f18f9a3669569d95e9350eb0a7bb7f3f631659d2aa16b17cc8cef433eddb8",
+      "crc32": "e4e33f09",
+      "cached": true
+    },
+    {
+      "file": "Shoplifting029_x264.mp4",
+      "bytes": 15397523,
+      "sha256": "44cf225cd1c75c8840e015277b76f73eb448fddee2524cf9cafeed3e9b6170ee",
+      "crc32": "a91ed86a",
+      "cached": true
+    },
+    {
+      "file": "Shoplifting031_x264.mp4",
+      "bytes": 3581720,
+      "sha256": "c43bb358cd6b04f9134c5cb00c2375f1a9f2b362ece231adb3afc179c5667e86",
+      "crc32": "1666a5fe",
+      "cached": true
+    },
+    {
+      "file": "Shoplifting033_x264.mp4",
+      "bytes": 7365027,
+      "sha256": "d686f807c4bc0622fb89fdae881d6cb21292bca9ae49fa15fdfa4bb1198c260b",
+      "crc32": "a52bcadb",
+      "cached": true
+    },
+    {
+      "file": "Shoplifting034_x264.mp4",
+      "bytes": 95892310,
+      "sha256": "1d8c1746a8d78d47a4e2e360b1fa43407840ebc60428409fdeba205af3548736",
+      "crc32": "5ff314c4",
+      "cached": false
+    },
+    {
+      "file": "Shoplifting037_x264.mp4",
+      "bytes": 11740357,
+      "sha256": "0a5611581cb60f684287443c283606381bc7e997dc3a865ed786664efc17bd9a",
+      "crc32": "e1325ecc",
+      "cached": true
+    },
+    {
+      "file": "Shoplifting039_x264.mp4",
+      "bytes": 22375099,
+      "sha256": "151e7720fbea909d2dcc6c32f1b8501b6d111e113882ac88865782b8a35d1d8b",
+      "crc32": "184b06d2",
+      "cached": false
+    },
+    {
+      "file": "Shoplifting044_x264.mp4",
+      "bytes": 117375590,
+      "sha256": "9e4ac798b68fbdeff5fc9a774f263b8472ff109e59308065e9f64ca36a0cabd3",
+      "crc32": "e7a74623",
+      "cached": false
+    },
+    {
+      "file": "Shoplifting049_x264.mp4",
+      "bytes": 17326646,
+      "sha256": "d0884df09847acb69927a92610c3fec6d157b7310f7616b3d5abd9b2c3a4f636",
+      "crc32": "5fee687c",
+      "cached": true
+    }
+  ]
+}

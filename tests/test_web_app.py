@@ -1,0 +1,79 @@
+import io
+import json
+from pathlib import Path
+import tempfile
+import time
+import unittest
+from unittest.mock import patch
+import cv2
+import numpy as np
+from shoplifting.web_app import create_app
+
+ROOT=Path(__file__).resolve().parents[1]
+
+class WebAppTests(unittest.TestCase):
+    def setUp(self):
+        self.temp=tempfile.TemporaryDirectory();self.base=Path(self.temp.name)
+        source=self.base/'fixture.mp4';writer=cv2.VideoWriter(str(source),cv2.VideoWriter_fourcc(*'mp4v'),10,(320,240))
+        for i in range(40):writer.write(np.full((240,320,3),40+i,dtype=np.uint8))
+        writer.release();self.video=source.read_bytes();self.calls=[]
+        def preview(source,folder):
+            (folder/'preview.mp4').write_bytes(source.read_bytes());(folder/'poster.jpg').write_bytes(b'poster')
+        def runner(source,folder,progress):
+            self.calls.append(source);progress(70,'Analysing video window 2 of 3')
+            return {'status':'insufficient_evidence','result_text':'CANNOT DETERMINE','video_score':.5,'review_threshold':.8,'duration_seconds':4,
+              'visibility':{'issues':[]},'decision':{'message':'Incomplete evidence'},
+              'review_intervals':[],'windows':[{'start_seconds':0,'end_seconds':2,'review_score':.2},{'start_seconds':1,'end_seconds':3,'review_score':.6},{'start_seconds':2,'end_seconds':4,'review_score':.3}]}
+        self.app=create_app(ROOT,self.base/'jobs',runner=runner,previewer=preview);self.client=self.app.test_client();self.headers={'X-Review-Token':self.app.config['REVIEW_TOKEN']}
+    def tearDown(self):
+        self.app.extensions['review_store'].shutdown();self.temp.cleanup()
+    def upload(self,name='clip.mp4',data=None):
+        return self.client.post('/api/analyses',data={'video':(io.BytesIO(self.video if data is None else data),name)},headers=self.headers)
+    def finish(self,job_id):
+        for _ in range(100):
+            job=self.client.get('/api/jobs/'+job_id).get_json()
+            if job['state'] in ['complete','failed']:return job
+            time.sleep(.01)
+        self.fail('Analysis did not finish')
+    def test_upload_runs_analysis_produces_real_ranges_and_supports_seek(self):
+        response=self.upload('../../my retail clip.mp4');self.assertEqual(response.status_code,202)
+        job=self.finish(response.get_json()['id']);self.assertEqual(job['state'],'complete');self.assertEqual(len(self.calls),1)
+        self.assertEqual(job['result']['status'],'insufficient_evidence');self.assertEqual(job['suggestions'][0]['kind'],'whole_clip')
+        self.assertEqual(job['suggestions'][0]['end_seconds'],4)
+        self.assertEqual(job['filename'],'my_retail_clip.mp4');self.assertEqual(len(job['windows']),3)
+        media=self.client.get(job['preview_url'],headers={'Range':'bytes=0-31'})
+        self.assertEqual(media.status_code,206);self.assertEqual(len(media.data),32)
+        media.close()
+    def test_human_review_is_saved_with_actual_segment_bounds_and_exported(self):
+        job=self.finish(self.upload().get_json()['id']);identifier=job['suggestions'][0]['id']
+        response=self.client.post(f'/api/jobs/{job["id"]}/review',json={'decision':'unclear','segment_id':identifier,'notes':'The item is hidden.'},headers=self.headers)
+        self.assertEqual(response.status_code,200);review=response.get_json()['review']
+        self.assertEqual(review['start_seconds'],0);self.assertEqual(review['end_seconds'],4);self.assertEqual(review['source'],'human_review')
+        saved=json.loads((self.base/'jobs'/job['id']/'job.json').read_text());self.assertEqual(saved['reviews'][identifier]['decision'],'unclear')
+        report=self.client.get(job['report_url']);self.assertEqual(report.status_code,200)
+        self.assertEqual(json.loads(report.data)['reviews'][identifier]['notes'],'The item is hidden.')
+    def test_bad_uploads_and_forged_ranges_are_rejected(self):
+        self.assertEqual(self.upload('clip.html').status_code,400);self.assertEqual(self.upload(data=b'').status_code,400)
+        job=self.finish(self.upload().get_json()['id'])
+        for data in [{'decision':'guilty'},{'decision':[]},{'decision':'unclear','segment_id':'made-up'},{'decision':'unclear','notes':'x'*2001}]:
+            response=self.client.post(f'/api/jobs/{job["id"]}/review',json=data,headers=self.headers);self.assertEqual(response.status_code,400)
+    def test_mutation_requires_local_page_token_and_media_cannot_read_arbitrary_files(self):
+        response=self.client.post('/api/analyses',data={'video':(io.BytesIO(self.video),'clip.mp4')});self.assertEqual(response.status_code,403)
+        self.assertEqual(self.client.get('/api/jobs/not-an-id').status_code,404)
+        job=self.finish(self.upload().get_json()['id']);self.assertEqual(self.client.get(f'/api/jobs/{job["id"]}/media/input').status_code,404)
+    def test_failed_decoder_is_reported_without_a_success_result(self):
+        job=self.finish(self.upload(data=b'not a video').get_json()['id'])
+        self.assertEqual(job['state'],'failed');self.assertIsNone(job['result'])
+    def test_interface_is_served_without_distributing_research_videos(self):
+        response=self.client.get('/');self.assertEqual(response.status_code,200);self.assertIn(b'Suggested time ranges',response.data)
+        self.assertIn(self.app.config['REVIEW_TOKEN'].encode(),response.data)
+        # Third-party research videos are deliberately absent in this checkout.
+        self.assertEqual(self.client.get('/api/samples').get_json()['samples'],[])
+        response=self.client.get('/assets/app.js');self.assertEqual(response.status_code,200);response.close()
+
+    def test_relaunch_reuses_existing_app_without_reloading_active_jobs(self):
+        from shoplifting import web_app
+        with patch.object(web_app,'existing_app',return_value=True),patch.object(web_app,'create_app') as create,patch.object(web_app.webbrowser,'open') as open_browser:
+            self.assertEqual(web_app.main(['--no-open']),0);create.assert_not_called();open_browser.assert_not_called()
+        with patch.object(web_app,'existing_app',return_value=True),patch.object(web_app,'create_app') as create,patch.object(web_app.webbrowser,'open') as open_browser:
+            self.assertEqual(web_app.main([]),0);create.assert_not_called();open_browser.assert_called_once_with('http://127.0.0.1:8765')

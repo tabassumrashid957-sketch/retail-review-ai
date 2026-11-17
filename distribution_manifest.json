@@ -1,0 +1,608 @@
+{
+  "purpose": "Source-only GitHub staging copy; not published by preparation agent",
+  "source_snapshot_date": "2026-11-17",
+  "changes": "User-specific paths normalized in copied text metadata. Trained head checkpoint bytes unchanged. Historical provenance hashes retain their original-snapshot meaning.",
+  "files": [
+    {
+      "path": ".run/Retail_Review_UI.run.xml",
+      "canonical_sha256": "e4dcf762fcd4177b3ab670fa2a5735a5308c85a6fa4a675b254999a31b3bb524",
+      "distributed_sha256": "e4dcf762fcd4177b3ab670fa2a5735a5308c85a6fa4a675b254999a31b3bb524",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "BUILD_MODEL.command",
+      "canonical_sha256": "86d0526b882cddf7e5e318638b81782e9d54be0059de5f67a8ad19947194d1e6",
+      "distributed_sha256": "86d0526b882cddf7e5e318638b81782e9d54be0059de5f67a8ad19947194d1e6",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "SETUP.command",
+      "canonical_sha256": "a707bed9813c3df68625c0431b4d3ffb9709ece1a2c78853ab2bbba0825e0060",
+      "distributed_sha256": "7f157e15e12c4832eb7b179df12a856c16350a2622584c57b2d9108620fef66d",
+      "paths_normalized": false,
+      "staging_adapted": true
+    },
+    {
+      "path": "START_UI.command",
+      "canonical_sha256": "5756f600b9ba08b941d78a7b39da457caa44a8f76ef8fe75773bde1036371cbd",
+      "distributed_sha256": "5756f600b9ba08b941d78a7b39da457caa44a8f76ef8fe75773bde1036371cbd",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/baseline-short-clips/mean_logistic.pkl",
+      "canonical_sha256": "466570d4183a3bbe01490456d2f9bcb250f1648f6e8f07bc0d87627698625682",
+      "distributed_sha256": "466570d4183a3bbe01490456d2f9bcb250f1648f6e8f07bc0d87627698625682",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/baseline-short-clips/mean_logistic_model.pt",
+      "canonical_sha256": "4f16c25eadee1ee8a6960e37ac5078b84c4b54128fd2a8d86eb0291602d18913",
+      "distributed_sha256": "4f16c25eadee1ee8a6960e37ac5078b84c4b54128fd2a8d86eb0291602d18913",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/baseline-short-clips/metrics.json",
+      "canonical_sha256": "426134b1d57a9e92b8e686e4f94c6a9b45929d3f837fe16639627ebbb95e453f",
+      "distributed_sha256": "426134b1d57a9e92b8e686e4f94c6a9b45929d3f837fe16639627ebbb95e453f",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/baseline-short-clips/mil_model.pt",
+      "canonical_sha256": "8c4a2ff3017cbb2304b71ddcf973fa704a4396b987914fa8b54cfbf1e0c5ea93",
+      "distributed_sha256": "8c4a2ff3017cbb2304b71ddcf973fa704a4396b987914fa8b54cfbf1e0c5ea93",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/baseline-short-clips/model.pt",
+      "canonical_sha256": "1dfb19afc6f138dd2cb22b16f089f537be674f214820c62227af441bab1f0fbb",
+      "distributed_sha256": "1dfb19afc6f138dd2cb22b16f089f537be674f214820c62227af441bab1f0fbb",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/baseline-short-clips/provenance.json",
+      "canonical_sha256": "3badd13e3f73759d59331d8078c85380ea1c880e34063721b2316d5fb54b3303",
+      "distributed_sha256": "3badd13e3f73759d59331d8078c85380ea1c880e34063721b2316d5fb54b3303",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/baseline-short-clips/split_manifest.json",
+      "canonical_sha256": "4e28eeb2b843b0b167124c080e0d555bbb109b50e54e412307ccf26033677552",
+      "distributed_sha256": "4e28eeb2b843b0b167124c080e0d555bbb109b50e54e412307ccf26033677552",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/baseline-short-clips/test_predictions.csv",
+      "canonical_sha256": "4a5820ca00e0fa165bed9796e5df85fb2c1655e683cc307e18f9076b4d27124b",
+      "distributed_sha256": "4a5820ca00e0fa165bed9796e5df85fb2c1655e683cc307e18f9076b4d27124b",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/model/decision_policy.json",
+      "canonical_sha256": "f903c83ac11cd944dc6fe26751db266993ea7cf3e31b3f640822dd8728a23d19",
+      "distributed_sha256": "f903c83ac11cd944dc6fe26751db266993ea7cf3e31b3f640822dd8728a23d19",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/model/frozen_transfer_model.pt",
+      "canonical_sha256": "58633762892c614148a66a31a001d585140832c87dabf146b99da45a45df536e",
+      "distributed_sha256": "58633762892c614148a66a31a001d585140832c87dabf146b99da45a45df536e",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/model/mean_logistic.pkl",
+      "canonical_sha256": "576cae1321d262076e6285ce5aeca6f7bf1d1fa2ffccfa18b1d5dfa2d308d019",
+      "distributed_sha256": "576cae1321d262076e6285ce5aeca6f7bf1d1fa2ffccfa18b1d5dfa2d308d019",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/model/mean_logistic_model.pt",
+      "canonical_sha256": "4578d8dc750f89357f0fc327a0b9a6e62bdaefcd880e60081c0c96147dadc243",
+      "distributed_sha256": "4578d8dc750f89357f0fc327a0b9a6e62bdaefcd880e60081c0c96147dadc243",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/model/metrics.json",
+      "canonical_sha256": "eba2ccf22d704326bc96bd11ef07db98d327d95f16cfbf411cfc2ec4f9c9bc54",
+      "distributed_sha256": "eba2ccf22d704326bc96bd11ef07db98d327d95f16cfbf411cfc2ec4f9c9bc54",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/model/mil_model.pt",
+      "canonical_sha256": "53d5897ebe3ffb35f850e2fe57e523c2d458f53db214dd5520da07d4aa1e673e",
+      "distributed_sha256": "53d5897ebe3ffb35f850e2fe57e523c2d458f53db214dd5520da07d4aa1e673e",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/model/model.pt",
+      "canonical_sha256": "8a2a78b485564d6f82c7af4c2ec9c115ec06cf09bb19174ad4cc41f9a363025f",
+      "distributed_sha256": "8a2a78b485564d6f82c7af4c2ec9c115ec06cf09bb19174ad4cc41f9a363025f",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/model/provenance.json",
+      "canonical_sha256": "b3ac18bce41e5cd407fa2a5ed9bbeaa21140829048e49b8424530704291a4dd5",
+      "distributed_sha256": "b3ac18bce41e5cd407fa2a5ed9bbeaa21140829048e49b8424530704291a4dd5",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/model/split_manifest.json",
+      "canonical_sha256": "d49daba135a9344bd28aeeeace395cdc1a0a8d397b38430d990165406c44289e",
+      "distributed_sha256": "d49daba135a9344bd28aeeeace395cdc1a0a8d397b38430d990165406c44289e",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/model/test_predictions.csv",
+      "canonical_sha256": "500b120109eb7700344fbe3dd9a03960a4a8fa23f211c925fc538e792d1c50db",
+      "distributed_sha256": "500b120109eb7700344fbe3dd9a03960a4a8fa23f211c925fc538e792d1c50db",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/model/validation_predictions.csv",
+      "canonical_sha256": "824ee19ac1d73889860ebed28fd1a8e84b6b0ffa2c10b1a36562acc70de5c5ad",
+      "distributed_sha256": "824ee19ac1d73889860ebed28fd1a8e84b6b0ffa2c10b1a36562acc70de5c5ad",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/validation/context-inference-audit.json",
+      "canonical_sha256": "17124155587a7c3a8c6f529f25e6b5f4b9aeeab7358b2c06bd491807c099ad0b",
+      "distributed_sha256": "17124155587a7c3a8c6f529f25e6b5f4b9aeeab7358b2c06bd491807c099ad0b",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/validation/context-training.txt",
+      "canonical_sha256": "3ac02a25f9f0025b7a41a63ab0845e01d977f7a1a46d0835628a950238d49e07",
+      "distributed_sha256": "3ac02a25f9f0025b7a41a63ab0845e01d977f7a1a46d0835628a950238d49e07",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "artifacts/validation/ui-only-tests.txt",
+      "canonical_sha256": "19fdc73042d5fdfef273b8dc6407e6c0e982780739d15cae1f8ed6f8e2203a17",
+      "distributed_sha256": "19fdc73042d5fdfef273b8dc6407e6c0e982780739d15cae1f8ed6f8e2203a17",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "data/active_dataset.json",
+      "canonical_sha256": "78b59c70736d99665440e2ceebf3a28d2795f8c7af4c3d5b6f18b4436af80b1b",
+      "distributed_sha256": "02363fcb54128d2394d844dda2eb6205e215882790b5389ef1fb98818ef67603",
+      "paths_normalized": true,
+      "staging_adapted": false
+    },
+    {
+      "path": "data/real_retail/ucf_crime/annotations.txt",
+      "canonical_sha256": "3b9542413f2ed9e94f73bf0488c151b3d7d595a8d2ad30f524e9243a2ae2a17c",
+      "distributed_sha256": "3b9542413f2ed9e94f73bf0488c151b3d7d595a8d2ad30f524e9243a2ae2a17c",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "data/real_retail/ucf_crime/baseline_active_dataset.json",
+      "canonical_sha256": "3992f0b410662aec21db36a52e35ed86be546c7ab335b953191394059b82cff5",
+      "distributed_sha256": "884adb63d713da7343e16ccac17af1dcf277f7af31d47d5e89341c332a26be40",
+      "paths_normalized": true,
+      "staging_adapted": false
+    },
+    {
+      "path": "data/real_retail/ucf_crime/context/manifest.csv",
+      "canonical_sha256": "1bce8bb64f97b0de3362d0b47b286bd4739ee68f67121b085f5f8fc56436f7b4",
+      "distributed_sha256": "5e4ce3c9101405e2914e8d50906ee544ca20d1a665ecd69164f8ea6d2df3ff04",
+      "paths_normalized": true,
+      "staging_adapted": false
+    },
+    {
+      "path": "data/real_retail/ucf_crime/context/metadata.json",
+      "canonical_sha256": "0ddac71b8be76288304c0cfed4dbd1aea50f38481d53e08db7dd378e63c4c358",
+      "distributed_sha256": "4d63e5f72d56bfc4066161731d3f143ec93dea42422d1970fe92e36006c04ba6",
+      "paths_normalized": true,
+      "staging_adapted": false
+    },
+    {
+      "path": "data/real_retail/ucf_crime/context/source_splits.json",
+      "canonical_sha256": "4e28eeb2b843b0b167124c080e0d555bbb109b50e54e412307ccf26033677552",
+      "distributed_sha256": "4e28eeb2b843b0b167124c080e0d555bbb109b50e54e412307ccf26033677552",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "data/real_retail/ucf_crime/manifest.csv",
+      "canonical_sha256": "d8dad9b41aa07625dd45e4345e64a4843c5212b1b40b4279b8fac05960722490",
+      "distributed_sha256": "1dd4e6eb521ee2afc94d67db34a477394c7056a45ce20fcc139027bbed91e69c",
+      "paths_normalized": true,
+      "staging_adapted": false
+    },
+    {
+      "path": "data/real_retail/ucf_crime/prepare_metadata.json",
+      "canonical_sha256": "dfb65ea566337cdc42a6696f7b4e9547f03ea4b6ab63e40fd15f700429ea6acd",
+      "distributed_sha256": "a30ce758816ce31ed5e05c23234f7338e7f13f37822144efa08e9b9a3d5ad14b",
+      "paths_normalized": true,
+      "staging_adapted": false
+    },
+    {
+      "path": "data/real_retail/ucf_crime/provenance.json",
+      "canonical_sha256": "564c7757afadb2d2a6340fcea325d2d018205074ea8702235a93ece351fc250f",
+      "distributed_sha256": "564c7757afadb2d2a6340fcea325d2d018205074ea8702235a93ece351fc250f",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "data/real_retail/ucf_crime/sources.json",
+      "canonical_sha256": "03446e5425bd8aaab28d3861855b8d65abf76d3980d584a4d3e7ff9859969b97",
+      "distributed_sha256": "03446e5425bd8aaab28d3861855b8d65abf76d3980d584a4d3e7ff9859969b97",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "data/real_retail/ucf_crime/video_inventory.json",
+      "canonical_sha256": "0f8b518ace5979817fcd6bd5ea51959299c5250de6aa16c290c767e21a6e8169",
+      "distributed_sha256": "0f8b518ace5979817fcd6bd5ea51959299c5250de6aa16c290c767e21a6e8169",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "detect.py",
+      "canonical_sha256": "d25180c60241a9b5615598d24604aa6c32a0228e5de8aab76c881a6825744307",
+      "distributed_sha256": "d25180c60241a9b5615598d24604aa6c32a0228e5de8aab76c881a6825744307",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "requirements-lock.txt",
+      "canonical_sha256": "bc81f5d458e9ed305a5981d34b6042cce5d58505c4b81d3bd1eb7eac0ec277d9",
+      "distributed_sha256": "bc81f5d458e9ed305a5981d34b6042cce5d58505c4b81d3bd1eb7eac0ec277d9",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "requirements.txt",
+      "canonical_sha256": "fb4372fce9158b4e1ab79ba979c2a076191d0158e787f0c884111236b4b49daf",
+      "distributed_sha256": "fb4372fce9158b4e1ab79ba979c2a076191d0158e787f0c884111236b4b49daf",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "run_ui.py",
+      "canonical_sha256": "31e191ae7394f4ff37e56b0402d89706f1b54f3b77ebfc854f5fd6288ea6bb93",
+      "distributed_sha256": "31e191ae7394f4ff37e56b0402d89706f1b54f3b77ebfc854f5fd6288ea6bb93",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "scripts/__init__.py",
+      "canonical_sha256": "bcf796006b7fb42a3228d57cac171dee474786ecd7d333656ac17b75d021d393",
+      "distributed_sha256": "bcf796006b7fb42a3228d57cac171dee474786ecd7d333656ac17b75d021d393",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "scripts/download_data.py",
+      "canonical_sha256": "62f08b49c239ce57c9c6f90d9304b29f279cf7d09f2b69fdd55e0164caaaa0e7",
+      "distributed_sha256": "62f08b49c239ce57c9c6f90d9304b29f279cf7d09f2b69fdd55e0164caaaa0e7",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "scripts/download_ucf_crime.py",
+      "canonical_sha256": "cc1446ba3b2d1b4f4623791d1525ec85e5ed81712bf4deae4f292fdf714fe81f",
+      "distributed_sha256": "cc1446ba3b2d1b4f4623791d1525ec85e5ed81712bf4deae4f292fdf714fe81f",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "scripts/package_project.py",
+      "canonical_sha256": "551e3f8d85f94787582dd05ea0f12df9f233e7a5f4eba61028aa74c65f10c4f9",
+      "distributed_sha256": "551e3f8d85f94787582dd05ea0f12df9f233e7a5f4eba61028aa74c65f10c4f9",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "scripts/prepare_ucf_context.py",
+      "canonical_sha256": "36de46e43424b176402ae8742ee95b18275e7cff1c3ec286acec1f994d692cba",
+      "distributed_sha256": "36de46e43424b176402ae8742ee95b18275e7cff1c3ec286acec1f994d692cba",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "scripts/prepare_ucf_crime.py",
+      "canonical_sha256": "8eb883e60b201680ab45d1f196dbf9292edeb1e06a4643ef33330425404fd94f",
+      "distributed_sha256": "8eb883e60b201680ab45d1f196dbf9292edeb1e06a4643ef33330425404fd94f",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "scripts/run_pipeline.py",
+      "canonical_sha256": "2c2243c99191cd395d8134112adf39fccad6f17bdb0c7973ce837c1f4b072b4d",
+      "distributed_sha256": "2c2243c99191cd395d8134112adf39fccad6f17bdb0c7973ce837c1f4b072b4d",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "scripts/select_context_model.py",
+      "canonical_sha256": "d657af1cd338c6ed78c86bac3d785dffef110e431601439b0edcde4dce421d21",
+      "distributed_sha256": "d657af1cd338c6ed78c86bac3d785dffef110e431601439b0edcde4dce421d21",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "scripts/verify_project.py",
+      "canonical_sha256": "1f717df73ed3d5f22a85eb2e683aafd5bb09507296c16140d08e70a93efee573",
+      "distributed_sha256": "1f717df73ed3d5f22a85eb2e683aafd5bb09507296c16140d08e70a93efee573",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "shoplifting/__init__.py",
+      "canonical_sha256": "15b490d7c9d87e8c29ebbe4e38fc9f9451f45c18b757611543b89e6d4fd7f5f6",
+      "distributed_sha256": "15b490d7c9d87e8c29ebbe4e38fc9f9451f45c18b757611543b89e6d4fd7f5f6",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "shoplifting/backbone.py",
+      "canonical_sha256": "2904c9ec73bf712c3f53ef9aebc18f87ee190566de79a5cf8e9fb9cf5515f6f0",
+      "distributed_sha256": "2904c9ec73bf712c3f53ef9aebc18f87ee190566de79a5cf8e9fb9cf5515f6f0",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "shoplifting/data_config.py",
+      "canonical_sha256": "3311b2606940cf2f9db5d928e7a5d64b03ca95ef78342324c203413c3cb8d436",
+      "distributed_sha256": "3311b2606940cf2f9db5d928e7a5d64b03ca95ef78342324c203413c3cb8d436",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "shoplifting/decision.py",
+      "canonical_sha256": "43203bd594f115d11e51afc85d15e9cb3b845fa6804d471048a7ca0e9cd4d871",
+      "distributed_sha256": "43203bd594f115d11e51afc85d15e9cb3b845fa6804d471048a7ca0e9cd4d871",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "shoplifting/events.py",
+      "canonical_sha256": "1616354c9c83575c427148cad5af1ea99ac2409bbd0a8688139ffedd741ce4a9",
+      "distributed_sha256": "1616354c9c83575c427148cad5af1ea99ac2409bbd0a8688139ffedd741ce4a9",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "shoplifting/extract.py",
+      "canonical_sha256": "44bfd5138cc96d69164d4e6958d0c1f14dc03b15a6d006a67e065dbf6d078a5f",
+      "distributed_sha256": "44bfd5138cc96d69164d4e6958d0c1f14dc03b15a6d006a67e065dbf6d078a5f",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "shoplifting/metrics.py",
+      "canonical_sha256": "9c7a64f158d8f148cdf8254702f0fe200de5ecff2ed50814e067c95ee2a840dc",
+      "distributed_sha256": "9c7a64f158d8f148cdf8254702f0fe200de5ecff2ed50814e067c95ee2a840dc",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "shoplifting/mil.py",
+      "canonical_sha256": "2138aa875ea5eee28f722f90a957a74ac347d50e6147ad39930327c1e138fe33",
+      "distributed_sha256": "2138aa875ea5eee28f722f90a957a74ac347d50e6147ad39930327c1e138fe33",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "shoplifting/predict.py",
+      "canonical_sha256": "6492a8c08b1d7b1c7ec6fb4ebf43e408fb9c080f3515e012ada177ffb6d8ff45",
+      "distributed_sha256": "6492a8c08b1d7b1c7ec6fb4ebf43e408fb9c080f3515e012ada177ffb6d8ff45",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "shoplifting/prepare.py",
+      "canonical_sha256": "51c7e6609af5f1550eab327c7229e8d1abc638ce261c51d2b8134c8313d2b20b",
+      "distributed_sha256": "51c7e6609af5f1550eab327c7229e8d1abc638ce261c51d2b8134c8313d2b20b",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "shoplifting/review_suggestions.py",
+      "canonical_sha256": "d8f4e9293a45fdfd34a32172ad99ac7a8d05a3ae4e066bdf23c511e0724881a9",
+      "distributed_sha256": "d8f4e9293a45fdfd34a32172ad99ac7a8d05a3ae4e066bdf23c511e0724881a9",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "shoplifting/train.py",
+      "canonical_sha256": "168cbf96946d4e3693d2a517b727ad7ddfcac46289f803db77ca47d7bd03180d",
+      "distributed_sha256": "168cbf96946d4e3693d2a517b727ad7ddfcac46289f803db77ca47d7bd03180d",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "shoplifting/video.py",
+      "canonical_sha256": "6d92c18cfae72e2ff918b37d8e524fc0f023cab6e8eb24a54063c260b4702f4b",
+      "distributed_sha256": "6d92c18cfae72e2ff918b37d8e524fc0f023cab6e8eb24a54063c260b4702f4b",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "shoplifting/visibility.py",
+      "canonical_sha256": "ebc40f52ec71782e85cafc18f5fa06affa8fb727310b7c1232f1a85453316fc0",
+      "distributed_sha256": "ebc40f52ec71782e85cafc18f5fa06affa8fb727310b7c1232f1a85453316fc0",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "shoplifting/web_app.py",
+      "canonical_sha256": "20a4c523603e019e68417bffe4e911f75e036654496b9182df3608744ef4f50d",
+      "distributed_sha256": "20a4c523603e019e68417bffe4e911f75e036654496b9182df3608744ef4f50d",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "tests/test_active_dataset.py",
+      "canonical_sha256": "4f03c3542bbe636ef1dfc526a4af82b2cc84b8b5bd7c82be6e389f022f467703",
+      "distributed_sha256": "4f03c3542bbe636ef1dfc526a4af82b2cc84b8b5bd7c82be6e389f022f467703",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "tests/test_cache.py",
+      "canonical_sha256": "4445d49aa934758d630cee655d6c036e4e205b1f00adfddb55760390fd5ee986",
+      "distributed_sha256": "4445d49aa934758d630cee655d6c036e4e205b1f00adfddb55760390fd5ee986",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "tests/test_context_prepare.py",
+      "canonical_sha256": "77b23953d133100f3ed0194292cdbf3fb0f0ebfac2c573bf734cdb8a90873956",
+      "distributed_sha256": "77b23953d133100f3ed0194292cdbf3fb0f0ebfac2c573bf734cdb8a90873956",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "tests/test_decision.py",
+      "canonical_sha256": "8c318e9cd79a248bb2f814cb988a8f5928f58d1559055ee4aba29d7d56d88bb6",
+      "distributed_sha256": "8c318e9cd79a248bb2f814cb988a8f5928f58d1559055ee4aba29d7d56d88bb6",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "tests/test_download_ucf_crime.py",
+      "canonical_sha256": "50a4bab4764a5b6909faa46a0320afd68eaff4c4a8e1cebe9f012e91fcdf6060",
+      "distributed_sha256": "50a4bab4764a5b6909faa46a0320afd68eaff4c4a8e1cebe9f012e91fcdf6060",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "tests/test_package_project.py",
+      "canonical_sha256": "ab2e3fc4ff4cd3f0259a47ec6eaab9b9e21f2c8850a55083cf1a853a227082a5",
+      "distributed_sha256": "ab2e3fc4ff4cd3f0259a47ec6eaab9b9e21f2c8850a55083cf1a853a227082a5",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "tests/test_prediction_decision.py",
+      "canonical_sha256": "642e4e56dfe500925508c99772c65ec3e2b570760a059372d2d3a2e1562317d0",
+      "distributed_sha256": "642e4e56dfe500925508c99772c65ec3e2b570760a059372d2d3a2e1562317d0",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "tests/test_prepare_ucf_crime.py",
+      "canonical_sha256": "ce3b6e86c5ad533271b8447107e27aaf1e431f6e470578106440925cae4b74c9",
+      "distributed_sha256": "ce3b6e86c5ad533271b8447107e27aaf1e431f6e470578106440925cae4b74c9",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "tests/test_pycharm_entry.py",
+      "canonical_sha256": "d69269d3941224d4d98740225bb4daaf7c2d24be154dcb091a2fa7c8ecad466c",
+      "distributed_sha256": "7ea8671b76cd6841ad6a4ece5404fd99ba37720f68da7047a7bb355a09b38efc",
+      "paths_normalized": false,
+      "staging_adapted": true
+    },
+    {
+      "path": "tests/test_review_suggestions.py",
+      "canonical_sha256": "2a73b49a10d64f83bc9a1f266e16af6fef35bc5b6787308cf3c7d2fd4bb1661c",
+      "distributed_sha256": "2a73b49a10d64f83bc9a1f266e16af6fef35bc5b6787308cf3c7d2fd4bb1661c",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "tests/test_setup_pipeline.py",
+      "canonical_sha256": "8351a24fa77c3b5bae4b7c55f4de2fabddbb984fe6fd3f32f0b44cdf260ea481",
+      "distributed_sha256": "8351a24fa77c3b5bae4b7c55f4de2fabddbb984fe6fd3f32f0b44cdf260ea481",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "tests/test_training.py",
+      "canonical_sha256": "9aa684832d2c06d2e9f19b3a4e7b34863eeee1359516343eda28da934c407026",
+      "distributed_sha256": "9aa684832d2c06d2e9f19b3a4e7b34863eeee1359516343eda28da934c407026",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "tests/test_ui_entry.py",
+      "canonical_sha256": "7d7aa8027cab40e6537f0fcbe80be8602d44f136b9c72fbf915fb62ab7e80821",
+      "distributed_sha256": "7d7aa8027cab40e6537f0fcbe80be8602d44f136b9c72fbf915fb62ab7e80821",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "tests/test_video_events.py",
+      "canonical_sha256": "b4d7a7d90a70b18cfd67bb0a9899c7cddd491d451274e5d92d4e74b58ea2b994",
+      "distributed_sha256": "b4d7a7d90a70b18cfd67bb0a9899c7cddd491d451274e5d92d4e74b58ea2b994",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "tests/test_visibility.py",
+      "canonical_sha256": "66ee9a776f5ed5c0e6d559b875b30474a5fa51ddbb9195a465646f99133a3044",
+      "distributed_sha256": "66ee9a776f5ed5c0e6d559b875b30474a5fa51ddbb9195a465646f99133a3044",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "tests/test_web_app.py",
+      "canonical_sha256": "b8e992f6b8fb3bd9434c9ad322c5068af942d5bf0b7cda674b24ba75d72804e8",
+      "distributed_sha256": "de81fb505b1a1f26d9988ce68fb95513a96859596c1694ae54860b8674959220",
+      "paths_normalized": false,
+      "staging_adapted": true
+    },
+    {
+      "path": "ui/app.js",
+      "canonical_sha256": "8c6008a8955bcba0a8f81ee0d3a582d432baa063ed6fe79aff5f9dbe37ec965b",
+      "distributed_sha256": "8c6008a8955bcba0a8f81ee0d3a582d432baa063ed6fe79aff5f9dbe37ec965b",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "ui/favicon.svg",
+      "canonical_sha256": "197d06a6b545ed80e2966595030da46834298bf20acb47cbcd2d01d05851aa2a",
+      "distributed_sha256": "197d06a6b545ed80e2966595030da46834298bf20acb47cbcd2d01d05851aa2a",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "ui/index.html",
+      "canonical_sha256": "4556635894f719a49c74bb91f1542c7561d776e7e13e56c129c5fedc007ca4fd",
+      "distributed_sha256": "4556635894f719a49c74bb91f1542c7561d776e7e13e56c129c5fedc007ca4fd",
+      "paths_normalized": false,
+      "staging_adapted": false
+    },
+    {
+      "path": "ui/style.css",
+      "canonical_sha256": "81843261d9f9c35fc6d5a79af84457558a078b115ccbc43962fd6b99e9ac76fe",
+      "distributed_sha256": "81843261d9f9c35fc6d5a79af84457558a078b115ccbc43962fd6b99e9ac76fe",
+      "paths_normalized": false,
+      "staging_adapted": false
+    }
+  ],
+  "staging_adaptations": [
+    "SETUP.command adds official encoder restoration",
+    "Two tests use clean-checkout fixtures; source/model logic unchanged",
+    "README and DISTRIBUTION_NOTES document omitted media and private state",
+    "scripts/download_encoder.py provides explicit official backbone restoration"
+  ]
+}

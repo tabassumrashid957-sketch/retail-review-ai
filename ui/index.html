@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="review-token" content="{{ review_token }}"><title>Retail Review · Video analysis</title><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/style.css"><script src="/assets/app.js" defer></script></head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="/"><span class="brand-mark">R<span></span></span><span>Retail Review<small>VIDEO REVIEW WORKSPACE</small></span></a>
+  <div class="nav-label">YOUR WORKFLOW</div>
+  <ol class="steps"><li id="step-upload" class="active"><b>1</b><div>Choose a clip<small>Upload a video from your laptop</small></div></li><li id="step-analysis"><b>2</b><div>Analyse the footage<small>Find time ranges worth checking</small></div></li><li id="step-review"><b>3</b><div>Review and record<small>You make the final assessment</small></div></li></ol>
+  <div class="history-heading"><span class="nav-label">RECENT ANALYSES</span><button id="refresh-history" class="icon-button" aria-label="Refresh recent analyses">↻</button></div>
+  <div id="history" class="history"><p>No clips analysed yet.</p></div>
+  <div class="local-note"><span class="local-dot"></span><div>Local workspace<small>Your videos and reviews stay<br>in this project on your laptop.</small></div></div>
+</aside>
+<main>
+  <header class="topbar"><span>WORKSPACE <span class="slash">/</span> VIDEO ANALYSIS</span><span class="connection"><i></i> Runs on this laptop</span></header>
+  <section class="heading-row"><div><div class="eyebrow">ASSISTED RETAIL REVIEW</div><h1>A closer look at your footage.</h1><p>Analyse a clip, explore suggested time ranges, and record what you see.</p></div><button class="secondary" id="new-clip">＋ New clip</button></section>
+  <div id="error" class="error hidden" role="alert"></div>
+  <section class="upload-card" aria-labelledby="upload-title">
+    <div class="card-heading"><div><span class="step-tag">01</span><h2 id="upload-title">Choose your video</h2></div><span class="subtle">MP4, MOV, AVI, MKV · up to 512 MB</span></div>
+    <div class="upload-layout"><div id="dropzone" class="dropzone"><input id="file-input" type="file" accept=".mp4,.mov,.avi,.mkv,.mpeg,.mpg,.wmv" aria-label="Choose a retail video"><svg class="upload-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 16V3m0 0L7 8m5-5 5 5M4 14v5a2 2 0 002 2h12a2 2 0 002-2v-5"/></svg><strong id="selected-name">Drop a video here, or browse files</strong><span id="selected-detail">Choose the original clip you want to review.</span><button id="browse" class="text-button" type="button">Choose a file <span>↗</span></button></div>
+      <div class="upload-actions"><div class="sample-label">Or try an included example</div><div id="samples" class="samples"></div><button id="analyse" class="primary" disabled><span>Analyse clip</span><span aria-hidden="true">→</span></button><span class="upload-hint">The model analyses the actual video and suggests review times.</span></div></div>
+  </section>
+  <section id="progress-panel" class="progress-card hidden" aria-live="polite"><div><span class="spinner"></span><div><strong id="progress-title">Preparing your clip</strong><p id="progress-message">Starting local analysis…</p></div><span id="progress-number">0%</span></div><div class="progress-track"><div id="progress-fill"></div></div></section>
+  <section id="result-banner" class="result-banner hidden" aria-live="polite"><span class="result-symbol" id="result-symbol">?</span><div><span class="eyebrow" id="result-kicker">MODEL ASSESSMENT</span><h2 id="result-title"></h2><p id="result-message"></p></div><span class="result-pill">Human review required</span></section>
+  <section class="workspace-grid">
+    <div class="video-card"><div class="card-heading"><div><span class="step-tag">02</span><h2>Footage & timeline</h2></div><span id="duration-label" class="subtle">No clip selected</span></div>
+      <div class="video-wrap"><video id="player" class="hidden" controls playsinline preload="metadata"></video><div id="player-empty" class="player-empty"><div class="play-outline">▷</div><strong>Your footage will appear here</strong><span>Upload a clip and start analysis to prepare playback.</span></div></div>
+      <div id="playback-controls" class="playback-controls hidden"><div><span id="playback-label">Full clip</span><small id="playback-time">00:00 / 00:00</small></div><button id="watch-full" class="text-button">Watch full clip ↗</button></div>
+      <div id="signal-panel" class="signal-panel hidden"><div><span>Relative model signal</span><span class="subtle">Click to seek</span></div><svg id="signal-chart" viewBox="0 0 700 65" preserveAspectRatio="none" role="img" aria-label="Model activity over time"></svg><div class="chart-axis"><span>00:00</span><span id="chart-end"></span></div><small>A stronger signal suggests a place to look. It does not confirm theft.</small></div>
+      <details id="analysis-details" class="analysis-details hidden"><summary>Analysis details</summary><p id="analysis-explanation"></p><p>Suggested times are approximate review prompts. The model does not verify shelf-to-pocket actions or payment.</p></details>
+    </div>
+    <div class="review-column"><section class="segments-card"><div class="card-heading"><div><span class="step-tag">03</span><h2>Suggested time ranges</h2></div><span id="segment-count" class="count">0</span></div><p id="segment-intro" class="section-description">After analysis, select a range to play that part of your clip.</p><div id="segments"><div class="empty-ranges"><span>◷</span><strong>Time ranges will appear here</strong><p>Suggestions are calculated from the uploaded video.</p></div></div></section>
+      <section id="review-panel" class="review-card hidden"><div class="card-heading"><h2>Your assessment</h2><span id="review-scope" class="scope">Full clip</span></div><p>Do you see possible shoplifting in this part of the video?</p><form id="review-form"><div class="review-options"><label><input type="radio" name="decision" value="suspected"><span><b>Possible shoplifting visible</b><small>An action needs further investigation</small></span></label><label><input type="radio" name="decision" value="not_visible"><span><b>No visible shoplifting</b><small>I do not see that action in this range</small></span></label><label><input type="radio" name="decision" value="unclear"><span><b>Unclear</b><small>The footage is not enough to decide</small></span></label></div><label class="notes-label" for="notes">Review notes <span>(optional)</span></label><textarea id="notes" rows="3" maxlength="2000" placeholder="What can you see? Is the item or hand obscured?"></textarea><button class="primary" id="save-review" type="submit">Save my review <span>✓</span></button><p id="review-status" class="save-status" role="status"></p></form><a id="download" class="download-link" href="#" download>Download analysis & review <span>↓</span></a></section>
+    </div>
+  </section>
+  <footer><span class="footer-mark">R</span><p>Research prototype · Model suggestions support human review and cannot confirm theft.</p><span>LOCAL VIDEO ANALYSIS</span></footer>
+</main>
+</body></html>

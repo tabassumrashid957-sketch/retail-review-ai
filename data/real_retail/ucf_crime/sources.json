@@ -1,0 +1,354 @@
+[
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting001_x264.mp4",
+    "compression": 8,
+    "compressed_size": 35738252,
+    "size": 35944805,
+    "header_offset": 18579943019,
+    "crc32": "18a6375a",
+    "file": "Shoplifting001_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        1550,
+        2000
+      ]
+    ],
+    "mirror_sha256": "7af64fd7e96f81da3f91c9cd4bf531dc2d5968718cdb646822ea9895d71ff060"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting004_x264.mp4",
+    "compression": 8,
+    "compressed_size": 56314681,
+    "size": 56620695,
+    "header_offset": 18705377220,
+    "crc32": "c1e5db76",
+    "file": "Shoplifting004_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        2200,
+        4900
+      ]
+    ],
+    "mirror_sha256": "c71351aad521f175593838ed3e9b6e681f51ff332cd9c2597244d239b701ed7b"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting005_x264.mp4",
+    "compression": 8,
+    "compressed_size": 15850232,
+    "size": 16275571,
+    "header_offset": 18761691984,
+    "crc32": "8d18dc61",
+    "file": "Shoplifting005_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        720,
+        930
+      ]
+    ],
+    "mirror_sha256": "b752e28446de1559726faf7ba41e1b8425e51554fb13640dccfc9906a6bd1193"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting007_x264.mp4",
+    "compression": 8,
+    "compressed_size": 44504913,
+    "size": 45436413,
+    "header_offset": 18803036111,
+    "crc32": "b7c441b5",
+    "file": "Shoplifting007_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        550,
+        760
+      ],
+      [
+        4630,
+        4920
+      ]
+    ],
+    "mirror_sha256": "0cb77fc4ba04b0bac2545354149b8ad836217688d7567f90e124210476653efd"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting010_x264.mp4",
+    "compression": 8,
+    "compressed_size": 22114932,
+    "size": 22406639,
+    "header_offset": 18965138144,
+    "crc32": "bcfd7e3d",
+    "file": "Shoplifting010_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        750,
+        920
+      ],
+      [
+        1550,
+        1970
+      ]
+    ],
+    "mirror_sha256": "717d68d3671d3f7638f80cc7db2e682599fceee21f15385431c569a1480d42ab"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting015_x264.mp4",
+    "compression": 8,
+    "compressed_size": 18645776,
+    "size": 18761721,
+    "header_offset": 19727466402,
+    "crc32": "0770e28c",
+    "file": "Shoplifting015_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        2010,
+        2160
+      ]
+    ],
+    "mirror_sha256": "6da5c049175da913380978247dfd975bcc167293d6bd14530f4fc244778fd772"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting016_x264.mp4",
+    "compression": 8,
+    "compressed_size": 10764137,
+    "size": 11043879,
+    "header_offset": 19746112261,
+    "crc32": "72ffefa7",
+    "file": "Shoplifting016_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        630,
+        720
+      ]
+    ],
+    "mirror_sha256": "ad596b23c277435d895b32f54800acbee2603e80af30a87ae3bbffda4ec56fd0"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting017_x264.mp4",
+    "compression": 8,
+    "compressed_size": 3527436,
+    "size": 3549517,
+    "header_offset": 19756876481,
+    "crc32": "69af9e52",
+    "file": "Shoplifting017_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        360,
+        420
+      ]
+    ],
+    "mirror_sha256": "078c78d774bd15636a0cced866e18251bfc58d45f7268850e487d4708bad9b79"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting020_x264.mp4",
+    "compression": 8,
+    "compressed_size": 46413284,
+    "size": 46703722,
+    "header_offset": 19783884157,
+    "crc32": "0fda01fc",
+    "file": "Shoplifting020_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        2340,
+        2460
+      ]
+    ],
+    "mirror_sha256": "5a638d09944343ac94839ebe5122ae359d07790102e43ce9377ce5c07685753f"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting021_x264.mp4",
+    "compression": 8,
+    "compressed_size": 26762937,
+    "size": 27661594,
+    "header_offset": 19830297524,
+    "crc32": "42afdd06",
+    "file": "Shoplifting021_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        2070,
+        2220
+      ]
+    ],
+    "mirror_sha256": "5afad2f70c4bdce298a2b5b2ec03c11fd060be8c05a7fabd7254606285ce5d63"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting022_x264.mp4",
+    "compression": 8,
+    "compressed_size": 15780345,
+    "size": 16095795,
+    "header_offset": 19857060544,
+    "crc32": "58925038",
+    "file": "Shoplifting022_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        270,
+        420
+      ],
+      [
+        1440,
+        1560
+      ]
+    ],
+    "mirror_sha256": "e274320d6a97349ada9bde6b614892a0ffbc767057d6908edc246a9a3ef56374"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting027_x264.mp4",
+    "compression": 8,
+    "compressed_size": 13605595,
+    "size": 13921810,
+    "header_offset": 19902042507,
+    "crc32": "ad9be6ba",
+    "file": "Shoplifting027_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        1080,
+        1160
+      ],
+      [
+        1470,
+        1710
+      ]
+    ],
+    "mirror_sha256": "b733c32ae8cd39193b551804faf018b229e6aec663a8cda7944fecb6835c5a37"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting028_x264.mp4",
+    "compression": 8,
+    "compressed_size": 6585946,
+    "size": 6804258,
+    "header_offset": 19915648185,
+    "crc32": "e4e33f09",
+    "file": "Shoplifting028_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        570,
+        840
+      ]
+    ],
+    "mirror_sha256": "d96f18f9a3669569d95e9350eb0a7bb7f3f631659d2aa16b17cc8cef433eddb8"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting029_x264.mp4",
+    "compression": 8,
+    "compressed_size": 15053261,
+    "size": 15397523,
+    "header_offset": 19922234214,
+    "crc32": "a91ed86a",
+    "file": "Shoplifting029_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        1020,
+        1470
+      ]
+    ],
+    "mirror_sha256": "44cf225cd1c75c8840e015277b76f73eb448fddee2524cf9cafeed3e9b6170ee"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting031_x264.mp4",
+    "compression": 8,
+    "compressed_size": 3496208,
+    "size": 3581720,
+    "header_offset": 20148365810,
+    "crc32": "1666a5fe",
+    "file": "Shoplifting031_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        120,
+        330
+      ]
+    ],
+    "mirror_sha256": "c43bb358cd6b04f9134c5cb00c2375f1a9f2b362ece231adb3afc179c5667e86"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting033_x264.mp4",
+    "compression": 8,
+    "compressed_size": 7313210,
+    "size": 7365027,
+    "header_offset": 20163344348,
+    "crc32": "a52bcadb",
+    "file": "Shoplifting033_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        630,
+        750
+      ]
+    ],
+    "mirror_sha256": "d686f807c4bc0622fb89fdae881d6cb21292bca9ae49fa15fdfa4bb1198c260b"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting034_x264.mp4",
+    "compression": 8,
+    "compressed_size": 95356052,
+    "size": 95892310,
+    "header_offset": 20170657641,
+    "crc32": "5ff314c4",
+    "file": "Shoplifting034_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        7350,
+        7470
+      ]
+    ],
+    "mirror_sha256": "1d8c1746a8d78d47a4e2e360b1fa43407840ebc60428409fdeba205af3548736"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting037_x264.mp4",
+    "compression": 8,
+    "compressed_size": 11682951,
+    "size": 11740357,
+    "header_offset": 20300371228,
+    "crc32": "e1325ecc",
+    "file": "Shoplifting037_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        1140,
+        1200
+      ]
+    ],
+    "mirror_sha256": "0a5611581cb60f684287443c283606381bc7e997dc3a865ed786664efc17bd9a"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting039_x264.mp4",
+    "compression": 8,
+    "compressed_size": 22166423,
+    "size": 22375099,
+    "header_offset": 20330464125,
+    "crc32": "184b06d2",
+    "file": "Shoplifting039_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        2190,
+        2340
+      ]
+    ],
+    "mirror_sha256": "151e7720fbea909d2dcc6c32f1b8501b6d111e113882ac88865782b8a35d1d8b"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting044_x264.mp4",
+    "compression": 8,
+    "compressed_size": 115254552,
+    "size": 117375590,
+    "header_offset": 20800869515,
+    "crc32": "e7a74623",
+    "file": "Shoplifting044_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        11070,
+        11250
+      ]
+    ],
+    "mirror_sha256": "9e4ac798b68fbdeff5fc9a774f263b8472ff109e59308065e9f64ca36a0cabd3"
+  },
+  {
+    "path": "UCF_Crimes/Videos/Shoplifting/Shoplifting049_x264.mp4",
+    "compression": 8,
+    "compressed_size": 17216797,
+    "size": 17326646,
+    "header_offset": 20970555987,
+    "crc32": "5fee687c",
+    "file": "Shoplifting049_x264.mp4",
+    "intervals_1based_inclusive": [
+      [
+        1020,
+        1350
+      ]
+    ],
+    "mirror_sha256": "d0884df09847acb69927a92610c3fec6d157b7310f7616b3d5abd9b2c3a4f636"
+  }
+]

@@ -1,0 +1,176 @@
+test_audited_manifest_skips_generic_group_resetting_preparation (test_active_dataset.ActiveDatasetTests) ... ok
+test_context_reproduction_preserves_ordered_features_and_validated_comparison (test_active_dataset.ActiveDatasetTests) ... ok
+test_ledger_cannot_reference_files_outside_project (test_active_dataset.ActiveDatasetTests) ... ok
+test_relocation_preserves_labels_and_original_source_groups (test_active_dataset.ActiveDatasetTests) ... ok
+test_replaced_source_or_broken_timestamps_invalidate_cache (test_cache.CacheTests) ... ok
+test_frozen_comparison_uses_validation_and_blocks_source_leakage (test_context_prepare.ContextTests) ... ok
+test_matching_shortage_does_not_truncate_the_positive (test_context_prepare.ContextTests) ... ok
+test_temporal_head_uses_order_and_round_trips (test_context_prepare.ContextTests) ... ok
+test_whole_event_and_duration_matching_with_nonoverlapping_normal (test_context_prepare.ContextTests) ... ok
+test_bounds_respect_empirical_support_and_score_ties (test_decision.DecisionTests) ... ok
+test_invalid_and_overlapping_bounds_are_rejected (test_decision.DecisionTests) ... ok
+test_long_duration_alone_cannot_resolve_an_uncertain_signal (test_decision.DecisionTests) ... ok
+test_predict_uses_no_negative_conclusions_for_legacy_or_manual_threshold (test_decision.DecisionTests) ... ok
+test_short_high_signal_can_request_review_without_claiming_theft (test_decision.DecisionTests) ... ok
+test_short_weak_clip_never_becomes_a_negative_verdict (test_decision.DecisionTests) ... ok
+test_visibility_failure_overrides_high_score (test_decision.DecisionTests) ... ok
+test_compressed_transfer_resumes_and_retries_only_complete_chunks (test_download_ucf_crime.DownloadTests) ... ok
+test_non_range_response_is_rejected_before_reading (test_download_ucf_crime.DownloadTests) ... ok
+test_truncated_or_wrong_header_is_rejected (test_download_ucf_crime.DownloadTests) ... ok
+test_unsafe_filename_is_rejected (test_download_ucf_crime.DownloadTests) ... ok
+test_verified_extract_and_cached_reuse (test_download_ucf_crime.DownloadTests) ... ok
+test_wrong_hash_does_not_publish (test_download_ucf_crime.DownloadTests) ... ok
+test_active_ledger_cannot_point_outside_real_data_or_to_staged_data (test_package_project.PackageProjectTests) ... ok
+test_crc_failure_keeps_previous_export (test_package_project.PackageProjectTests) ... ok
+test_feature_index_escape_or_interruption_is_rejected (test_package_project.PackageProjectTests) ... ok
+test_missing_required_inputs_do_not_replace_existing_archive (test_package_project.PackageProjectTests) ... ok
+test_only_ui_entry_is_packaged_even_when_old_launchers_and_configs_remain (test_package_project.PackageProjectTests) ... ok
+test_output_cannot_overwrite_data_or_enter_old_exports (test_package_project.PackageProjectTests) ... ok
+test_real_data_models_pycharm_and_launcher_modes_included_without_old_exports (test_package_project.PackageProjectTests) ... ok
+test_relocated_manifest_uses_local_active_clips_without_rewriting_provenance (test_package_project.PackageProjectTests) ... ok
+test_symlinked_configuration_and_data_are_rejected (test_package_project.PackageProjectTests) ... ok
+test_ui_sources_are_included_but_uploaded_clips_and_reviews_are_local_only (test_package_project.PackageProjectTests) ... ok
+test_blank_clip_is_inconclusive_even_with_high_model_score (test_prediction_decision.PredictionDecisionTests) ... ok
+test_four_second_strong_signal_requests_review (test_prediction_decision.PredictionDecisionTests) ... ok
+test_four_second_weak_signal_is_inconclusive (test_prediction_decision.PredictionDecisionTests) ... ok
+test_longer_low_signal_can_be_unflagged_without_confirming_no_theft (test_prediction_decision.PredictionDecisionTests) ... ok
+test_grouping_balancing_guard_boundaries_and_cached_resume (test_prepare_ucf_crime.UCFPreparationTests) ... [1/24] prepared f65314d6743098b7-normal-0-20
+[2/24] prepared f65314d6743098b7-positive-43-63
+[3/24] prepared f65314d6743098b7-normal-110-120
+[4/24] prepared f65314d6743098b7-positive-65-75
+[5/24] prepared 4c0e9f2bdf172daf-normal-0-20
+[6/24] prepared 4c0e9f2bdf172daf-positive-43-63
+[7/24] prepared 4c0e9f2bdf172daf-normal-110-120
+[8/24] prepared 4c0e9f2bdf172daf-positive-65-75
+[9/24] prepared 45d5ef6c865cbfd0-normal-0-20
+[10/24] prepared 45d5ef6c865cbfd0-positive-43-63
+[11/24] prepared 45d5ef6c865cbfd0-normal-110-120
+[12/24] prepared 45d5ef6c865cbfd0-positive-65-75
+[13/24] prepared 1ba80fb4b335224b-normal-0-20
+[14/24] prepared 1ba80fb4b335224b-positive-43-63
+[15/24] prepared 1ba80fb4b335224b-normal-110-120
+[16/24] prepared 1ba80fb4b335224b-positive-65-75
+[17/24] prepared def2d55a1571a72c-normal-0-20
+[18/24] prepared def2d55a1571a72c-positive-43-63
+[19/24] prepared def2d55a1571a72c-normal-110-120
+[20/24] prepared def2d55a1571a72c-positive-65-75
+[21/24] prepared fb32d3dd31fb8e31-normal-0-20
+[22/24] prepared fb32d3dd31fb8e31-positive-43-63
+[23/24] prepared fb32d3dd31fb8e31-normal-110-120
+[24/24] prepared fb32d3dd31fb8e31-positive-65-75
+Prepared 24 balanced clips from 6 source videos. Manifest: /private/var/folders/rs/n_888jyn0w31zf6zjmd8rc3w0000gn/T/tmpb98dozui/manifest.csv
+[1/24] cached f65314d6743098b7-normal-0-20
+[2/24] cached f65314d6743098b7-positive-43-63
+[3/24] cached f65314d6743098b7-normal-110-120
+[4/24] cached f65314d6743098b7-positive-65-75
+[5/24] cached 4c0e9f2bdf172daf-normal-0-20
+[6/24] cached 4c0e9f2bdf172daf-positive-43-63
+[7/24] cached 4c0e9f2bdf172daf-normal-110-120
+[8/24] cached 4c0e9f2bdf172daf-positive-65-75
+[9/24] cached 45d5ef6c865cbfd0-normal-0-20
+[10/24] cached 45d5ef6c865cbfd0-positive-43-63
+[11/24] cached 45d5ef6c865cbfd0-normal-110-120
+[12/24] cached 45d5ef6c865cbfd0-positive-65-75
+[13/24] cached 1ba80fb4b335224b-normal-0-20
+[14/24] cached 1ba80fb4b335224b-positive-43-63
+[15/24] cached 1ba80fb4b335224b-normal-110-120
+[16/24] cached 1ba80fb4b335224b-positive-65-75
+[17/24] cached def2d55a1571a72c-normal-0-20
+[18/24] cached def2d55a1571a72c-positive-43-63
+[19/24] cached def2d55a1571a72c-normal-110-120
+[20/24] cached def2d55a1571a72c-positive-65-75
+[21/24] cached fb32d3dd31fb8e31-normal-0-20
+[22/24] cached fb32d3dd31fb8e31-positive-43-63
+[23/24] cached fb32d3dd31fb8e31-normal-110-120
+[24/24] cached fb32d3dd31fb8e31-positive-65-75
+Prepared 24 balanced clips from 6 source videos. Manifest: /private/var/folders/rs/n_888jyn0w31zf6zjmd8rc3w0000gn/T/tmpb98dozui/manifest.csv
+ok
+test_insufficient_independent_sources_and_source_overlap_rejected (test_prepare_ucf_crime.UCFPreparationTests) ... ok
+test_normal_complement_excludes_annotation_and_guard (test_prepare_ucf_crime.UCFPreparationTests) ... ok
+test_official_one_based_inclusive_annotation_conversion (test_prepare_ucf_crime.UCFPreparationTests) ... ok
+test_short_annotated_event_is_preserved (test_prepare_ucf_crime.UCFPreparationTests) ... [1/2] prepared f65314d6743098b7-normal-83-97
+[2/2] prepared f65314d6743098b7-positive-43-57
+Prepared 2 balanced clips from 1 source videos. Manifest: /private/var/folders/rs/n_888jyn0w31zf6zjmd8rc3w0000gn/T/tmp3cnkkpj4/manifest.csv
+ok
+test_wrong_variant_and_missing_sources_fail_before_manifest (test_prepare_ucf_crime.UCFPreparationTests) ... ok
+test_only_retail_review_ui_is_exposed_as_a_shared_run_configuration (test_pycharm_entry.PyCharmEntryTests) ... ok
+test_running_detect_without_arguments_opens_the_web_ui (test_pycharm_entry.PyCharmEntryTests) ... ok
+test_structured_prediction_result_is_not_used_as_an_error_exit_code (test_pycharm_entry.PyCharmEntryTests) ... ok
+test_wrong_interpreter_keeps_the_requested_ui_entry_point (test_pycharm_entry.PyCharmEntryTests) ... ok
+test_blank_blurred_or_incomplete_coverage_is_not_localized (test_review_suggestions.ReviewSuggestionsTests) ... ok
+test_clamp_bounds_and_reject_nan_infinite_and_invalid_scores (test_review_suggestions.ReviewSuggestionsTests) ... ok
+test_fallback_padding_stays_within_video_duration (test_review_suggestions.ReviewSuggestionsTests) ... ok
+test_flagged_intervals_take_priority_and_merge (test_review_suggestions.ReviewSuggestionsTests) ... ok
+test_flat_near_flat_empty_and_invalid_windows_have_no_fallback (test_review_suggestions.ReviewSuggestionsTests) ... ok
+test_limits_and_padding_are_validated (test_review_suggestions.ReviewSuggestionsTests) ... ok
+test_nearby_oscillating_peaks_cannot_chain_into_whole_video (test_review_suggestions.ReviewSuggestionsTests) ... ok
+test_padded_overlapping_peaks_keep_highest_without_duplicate_action (test_review_suggestions.ReviewSuggestionsTests) ... ok
+test_ranked_locations_follow_actual_varying_scores (test_review_suggestions.ReviewSuggestionsTests) ... ok
+test_short_healthy_nonflat_clip_is_offered_in_full (test_review_suggestions.ReviewSuggestionsTests) ... ok
+test_suggestions_do_not_change_decision_or_claim_confirmed_theft (test_review_suggestions.ReviewSuggestionsTests) ... ok
+test_commands_keep_paths_literal_and_archive_offline_by_default (test_setup_pipeline.PipelineTests) ... ok
+test_explicit_promotion_keeps_previous_model_backup (test_setup_pipeline.PipelineTests) ... Pipeline log: /private/var/folders/rs/n_888jyn0w31zf6zjmd8rc3w0000gn/T/tmpt653d_7r/project with spaces/artifacts/pipeline-20261117-183621-36eda8.log
+Candidate output: /private/var/folders/rs/n_888jyn0w31zf6zjmd8rc3w0000gn/T/tmpt653d_7r/project with spaces/artifacts/model-new; current model is retained until successful explicit promotion.
+Completed. Model and evaluation artifacts: /private/var/folders/rs/n_888jyn0w31zf6zjmd8rc3w0000gn/T/tmpt653d_7r/project with spaces/artifacts/model
+Previous model backup: /private/var/folders/rs/n_888jyn0w31zf6zjmd8rc3w0000gn/T/tmpt653d_7r/project with spaces/artifacts/model-backup-20261117-183621-4ed93a
+ok
+test_missing_local_data_does_not_implicitly_download (test_setup_pipeline.PipelineTests) ... ok
+test_output_and_log_paths_cannot_overwrite_working_model (test_setup_pipeline.PipelineTests) ... ok
+test_promotion_rolls_back_failed_candidate_rename (test_setup_pipeline.PipelineTests) ... ok
+test_successful_default_run_preserves_working_model (test_setup_pipeline.PipelineTests) ... Pipeline log: /private/var/folders/rs/n_888jyn0w31zf6zjmd8rc3w0000gn/T/tmpmhepfmnz/project with spaces/artifacts/pipeline-20261117-183621-c1ac88.log
+Candidate output: /private/var/folders/rs/n_888jyn0w31zf6zjmd8rc3w0000gn/T/tmpmhepfmnz/project with spaces/artifacts/model-new; current model is retained until successful explicit promotion.
+Completed. Model and evaluation artifacts: /private/var/folders/rs/n_888jyn0w31zf6zjmd8rc3w0000gn/T/tmpmhepfmnz/project with spaces/artifacts/model-new
+ok
+test_training_failure_never_replaces_current_model (test_setup_pipeline.PipelineTests) ... Pipeline log: /private/var/folders/rs/n_888jyn0w31zf6zjmd8rc3w0000gn/T/tmpc9lboc5_/project with spaces/artifacts/pipeline-20261117-183621-733505.log
+Candidate output: /private/var/folders/rs/n_888jyn0w31zf6zjmd8rc3w0000gn/T/tmpc9lboc5_/project with spaces/artifacts/model-new; current model is retained until successful explicit promotion.
+ok
+test_inference_does_not_require_training_data (test_setup_pipeline.VerificationTests) ... ok
+test_label_detection_prioritises_non_shoplifting (test_setup_pipeline.VerificationTests) ... ok
+test_missing_encoder_and_incomplete_archive_fail_without_network (test_setup_pipeline.VerificationTests) ... ok
+test_missing_environment_and_imports_give_actionable_status (test_setup_pipeline.VerificationTests) ... ok
+test_offline_training_checkpoint_and_train_only_normalisation (test_training.MILTests) ... Epoch 1/3: train loss 0.6869; validation PR-AUC 1.0000
+mil training complete after 3 epochs; restored epoch 1 with validation PR-AUC 1.0000.
+Deployment selected from validation only: mean_logistic
+ok
+test_window_dimension_and_topk_gradient (test_training.MILTests) ... ok
+test_constant_scores_and_single_class_are_json_safe (test_training.MetricTests) ... ok
+test_deployment_selection_ignores_test_metrics_and_has_a_fixed_tie_rule (test_training.MetricTests) ... ok
+test_validation_threshold_and_auc (test_training.MetricTests) ... ok
+test_explicit_splits_honoured_and_leakage_rejected (test_training.SplitTests) ... ok
+test_insufficient_independent_groups_fails_actionably (test_training.SplitTests) ... ok
+test_interrupted_extraction_is_rejected_without_breaking_legacy_indices (test_training.SplitTests) ... ok
+test_minimal_mixed_and_pure_groups_can_cover_splits (test_training.SplitTests) ... ok
+test_related_clips_stay_together_and_splits_cover_classes (test_training.SplitTests) ... ok
+test_command_launcher_preserves_paths_arguments_and_server_exit_status (test_ui_entry.UIEntryTests) ... ok
+test_default_arguments_come_from_the_command_line (test_ui_entry.UIEntryTests) ... ok
+test_explicit_arguments_and_exit_status_are_forwarded_after_bootstrap (test_ui_entry.UIEntryTests) ... ok
+test_importing_entry_does_not_import_the_web_backend (test_ui_entry.UIEntryTests) ... ok
+test_pycharm_configuration_uses_the_project_interpreter_and_entry (test_ui_entry.UIEntryTests) ... ok
+test_invalid_scores_fail (test_video_events.TemporalTests) ... ok
+test_minimum_duration_rejects_isolated_hit (test_video_events.TemporalTests) ... ok
+test_negative_windows_break_an_alert (test_video_events.TemporalTests) ... ok
+test_non_shoplifting_is_negative (test_video_events.TemporalTests) ... ok
+test_sampling_keeps_beginning_and_end (test_video_events.TemporalTests) ... ok
+test_short_video_still_has_one_complete_window (test_video_events.TemporalTests) ... ok
+test_smoothing_preserves_constant_edges_and_length (test_video_events.TemporalTests) ... ok
+test_tail_is_included_without_invalid_window (test_video_events.TemporalTests) ... ok
+test_unsampled_gaps_do_not_merge (test_video_events.TemporalTests) ... ok
+test_blank_footage_is_rejected_even_with_sufficient_duration (test_visibility.VisibilityTests) ... ok
+test_technical_checks_do_not_assert_an_action_is_visible (test_visibility.VisibilityTests) ... ok
+test_temporal_gaps_are_reported_but_overlap_is_not (test_visibility.VisibilityTests) ... ok
+test_bad_uploads_and_forged_ranges_are_rejected (test_web_app.WebAppTests) ... ok
+test_failed_decoder_is_reported_without_a_success_result (test_web_app.WebAppTests) ... [mov,mp4,m4a,3gp,3g2,mj2 @ 0x134690b30] moov atom not found
+OpenCV: Couldn't read video stream from file "/private/var/folders/rs/n_888jyn0w31zf6zjmd8rc3w0000gn/T/tmppn8nji89/jobs/0c6947ae5943453599b62778e59facb6/input.mp4"
+ok
+test_human_review_is_saved_with_actual_segment_bounds_and_exported (test_web_app.WebAppTests) ... ok
+test_interface_and_examples_are_served (test_web_app.WebAppTests) ... ok
+test_mutation_requires_local_page_token_and_media_cannot_read_arbitrary_files (test_web_app.WebAppTests) ... ok
+test_relaunch_reuses_existing_app_without_reloading_active_jobs (test_web_app.WebAppTests) ... Retail Review UI is already running: http://127.0.0.1:8765
+Retail Review UI is already running: http://127.0.0.1:8765
+ok
+test_upload_runs_analysis_produces_real_ranges_and_supports_seek (test_web_app.WebAppTests) ... ok
+
+----------------------------------------------------------------------
+Ran 102 tests in 2.819s
+
+OK

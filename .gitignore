@@ -1,0 +1,42 @@
+# Local Python/IDE state and secrets
+.venv/
+__pycache__/
+*.py[cod]
+.idea/
+.DS_Store
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+
+# Private uploads, generated reviews and exported bundles
+outputs/
+exports/
+.maintenance-backups/
+report_support/
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.mpeg
+*.mpg
+*.wmv
+*.zip
+
+# Third-party footage and large official feature encoder are restored locally
+data/raw/
+data/real_retail/ucf_crime/source_videos/
+data/real_retail/ucf_crime/clips/
+data/real_retail/ucf_crime/context/clips/
+artifacts/torch/
+artifacts/features*/
+artifacts/predictions/
+artifacts/validation/context-inference/
+
+# Future training runs: the checked-in small model snapshots remain tracked
+artifacts/model-new/
+artifacts/model-candidate*/
+artifacts/model-backup*/
+artifacts/.training-candidate*/
+artifacts/pipeline-*.log
