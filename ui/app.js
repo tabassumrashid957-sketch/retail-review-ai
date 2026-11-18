@@ -1,7 +1,7 @@
 'use strict';
 const $ = id => document.getElementById(id);
 const token = document.querySelector('meta[name="review-token"]').content;
-const state = {file:null,sample:null,job:null,busy:false,poll:null,segment:null,drafts:{}};
+const state = {file:null,sample:null,job:null,busy:false,poll:null,segment:null,drafts:{},saveRequest:null};
 const video = $('player');
 const show = (id,on=true) => $(id).classList.toggle('hidden',!on);
 const formatTime = value => {const n=Math.max(0,Number(value)||0);return `${String(Math.floor(n/60)).padStart(2,'0')}:${(n%60).toFixed(1).padStart(4,'0')}`;};
@@ -118,10 +118,24 @@ function drawSignal(job){
 $('signal-chart').addEventListener('click',event=>{if(!state.job)return;rememberDraft();state.segment=null;loadReview();$('playback-label').textContent='Full clip';document.querySelectorAll('.segment').forEach(b=>b.classList.remove('selected'));video.currentTime=Math.max(0,Math.min(1,(event.clientX-event.currentTarget.getBoundingClientRect().left)/event.currentTarget.getBoundingClientRect().width))*state.job.duration_seconds;drawSignal(state.job);});
 $('review-form').addEventListener('submit',async event=>{
   event.preventDefault();const chosen=document.querySelector('input[name="decision"]:checked');
+  if(!state.job)return;
   if(!chosen){$('review-status').textContent='Choose an assessment before saving.';return;}
+  const submittedJob=state.job;
+  const submittedSegment=state.segment?.id||null;
+  const submittedScope=submittedSegment||'whole_clip';
+  const submittedDraft={decision:chosen.value,notes:$('notes').value};
+  const requestMarker={};state.saveRequest=requestMarker;
+  state.drafts[submittedScope]={...submittedDraft};
+  const viewingSubmittedScope=()=>state.job?.id===submittedJob.id && (state.segment?.id||'whole_clip')===submittedScope;
   $('save-review').disabled=true;$('review-status').textContent='Saving…';
-  try {const data=await api(`/api/jobs/${state.job.id}/review`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({decision:chosen.value,notes:$('notes').value,segment_id:state.segment?.id||null})});state.job.reviews=data.reviews;rememberDraft();$('review-status').textContent='Review saved on this laptop.';refreshHistory();}
-  catch(e){$('review-status').textContent=e.message;}finally{$('save-review').disabled=false;}
+  try {
+    const data=await api(`/api/jobs/${submittedJob.id}/review`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...submittedDraft,segment_id:submittedSegment})});
+    submittedJob.reviews=data.reviews;
+    if(state.job?.id===submittedJob.id)state.job.reviews=data.reviews;
+    if(viewingSubmittedScope())$('review-status').textContent='Submitted review saved on this laptop.';
+    refreshHistory();
+  }catch(e){if(viewingSubmittedScope())$('review-status').textContent=e.message;}
+  finally{if(state.saveRequest===requestMarker){state.saveRequest=null;$('save-review').disabled=false;}}
 });
 async function refreshHistory(){
   try {const data=await api('/api/jobs');$('history').replaceChildren();if(!data.jobs.length){const p=document.createElement('p');p.textContent='No clips analysed yet.';$('history').append(p);}

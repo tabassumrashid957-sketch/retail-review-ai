@@ -1,15 +1,77 @@
 import io
 import json
 from pathlib import Path
+import subprocess
 import tempfile
 import time
 import unittest
 from unittest.mock import patch
 import cv2
 import numpy as np
-from shoplifting.web_app import create_app
+from shoplifting.web_app import JobStore, browser_preview, create_app
 
 ROOT=Path(__file__).resolve().parents[1]
+
+class JobStoreTests(unittest.TestCase):
+    def test_damaged_history_records_do_not_block_valid_saved_cases(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            base = {'state': 'failed', 'created_at': '2026-11-18T00:00:00+00:00',
+                    'reviews': {}, 'suggestions': [], 'filename': 'clip.mp4'}
+            invalid = [[], {**base, 'id': None}, {**base, 'state': []},
+                       {**base, 'created_at': None}, {**base, 'reviews': []},
+                       {**base, 'suggestions': {}}, {**base, 'state': 'complete', 'result': None}]
+            originals = {}
+            for index, data in enumerate(invalid):
+                identifier = f'{index:032x}'
+                if isinstance(data, dict) and 'id' not in data:
+                    data['id'] = identifier
+                folder = root / identifier
+                folder.mkdir()
+                path = folder / 'job.json'
+                path.write_text(json.dumps(data))
+                originals[path] = path.read_bytes()
+            valid_id = 'f' * 32
+            folder = root / valid_id
+            folder.mkdir()
+            (folder / 'job.json').write_text(json.dumps({**base, 'id': valid_id}))
+            store = JobStore(root)
+            try:
+                self.assertEqual(set(store.jobs), {valid_id})
+                self.assertEqual(store.get(valid_id)['filename'], 'clip.mp4')
+                for path, content in originals.items():
+                    self.assertEqual(path.read_bytes(), content)
+            finally:
+                store.shutdown()
+
+
+class BrowserPreviewTests(unittest.TestCase):
+    def test_odd_sized_video_becomes_playable_browser_preview(self):
+        import imageio_ffmpeg
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / 'odd-sized.mkv'
+            folder = root / 'preview'
+            folder.mkdir()
+            subprocess.run(
+                [imageio_ffmpeg.get_ffmpeg_exe(), '-nostdin', '-y', '-f', 'lavfi',
+                 '-i', 'testsrc=size=321x241:rate=5:duration=1', '-c:v', 'ffv1', str(source)],
+                check=True, capture_output=True,
+            )
+            browser_preview(source, folder)
+
+            capture = cv2.VideoCapture(str(folder / 'preview.mp4'))
+            try:
+                readable, frame = capture.read()
+                self.assertTrue(readable)
+                self.assertEqual(frame.shape[1] % 2, 0)
+                self.assertEqual(frame.shape[0] % 2, 0)
+                self.assertEqual(int(capture.get(cv2.CAP_PROP_FRAME_COUNT)), 5)
+            finally:
+                capture.release()
+            self.assertTrue((folder / 'poster.jpg').is_file())
+
 
 class WebAppTests(unittest.TestCase):
     def setUp(self):
@@ -61,6 +123,20 @@ class WebAppTests(unittest.TestCase):
         response=self.client.post('/api/analyses',data={'video':(io.BytesIO(self.video),'clip.mp4')});self.assertEqual(response.status_code,403)
         self.assertEqual(self.client.get('/api/jobs/not-an-id').status_code,404)
         job=self.finish(self.upload().get_json()['id']);self.assertEqual(self.client.get(f'/api/jobs/{job["id"]}/media/input').status_code,404)
+    def test_review_rejects_non_object_payloads_and_invalid_scope(self):
+        job = self.finish(self.upload().get_json()['id'])
+        endpoint = f'/api/jobs/{job["id"]}/review'
+        for data in ([{'decision': 'unclear'}], 'unclear', 1, True, None):
+            with self.subTest(payload=data):
+                response = self.client.post(endpoint, json=data, headers=self.headers)
+                self.assertEqual(response.status_code, 400)
+                self.assertTrue(response.is_json)
+        for segment_id in ([], {}, 0, False, ''):
+            with self.subTest(segment_id=segment_id):
+                response = self.client.post(endpoint, json={'decision': 'unclear', 'segment_id': segment_id}, headers=self.headers)
+                self.assertEqual(response.status_code, 400)
+        self.assertEqual(self.client.get('/api/jobs/' + job['id']).get_json()['reviews'], {})
+
     def test_failed_decoder_is_reported_without_a_success_result(self):
         job=self.finish(self.upload(data=b'not a video').get_json()['id'])
         self.assertEqual(job['state'],'failed');self.assertIsNone(job['result'])

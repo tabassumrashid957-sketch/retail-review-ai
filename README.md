@@ -150,11 +150,17 @@ is implemented.
 .venv/bin/python scripts/verify_project.py --model-check-only
 ```
 
-The canonical application's post-cleanup record contains 102 passing software
-tests. Recognition accuracy is measured separately. Run the tests again in your
-environment. Full readiness checks will show training data as absent until it
-is reconstructed. Historical provenance retains earlier test counts and hashes;
-see `DISTRIBUTION_NOTES.md` for their scope.
+The Python suite contains 110 software tests. Recognition accuracy is measured
+separately. Run the tests in your environment. Training data is reported as
+absent until it is reconstructed. Historical provenance retains earlier test
+counts and hashes; see `DISTRIBUTION_NOTES.md` for their scope.
+
+The browser review-save tests use Node.js, which is optional for running the
+application:
+
+```sh
+node tests/test_review_save_race.js
+```
 
 ## Attribution, rights and assistance
 

@@ -47,7 +47,19 @@ class JobStore:
         for p in self.root.glob('*/job.json'):
             try:
                 data = json.loads(p.read_text())
-                if not re.fullmatch(r'[a-f0-9]{32}', data['id']) or p.parent.name != data['id']:
+                if not isinstance(data, dict):
+                    continue
+                identifier = data.get('id')
+                state = data.get('state')
+                if not isinstance(identifier, str) or not re.fullmatch(r'[a-f0-9]{32}', identifier) or p.parent.name != identifier:
+                    continue
+                if not isinstance(state, str) or state not in {'queued', 'running', 'complete', 'failed'}:
+                    continue
+                if not isinstance(data.get('created_at'), str):
+                    continue
+                if not isinstance(data.get('reviews'), dict) or not isinstance(data.get('suggestions'), list):
+                    continue
+                if state == 'complete' and (not isinstance(data.get('result'), dict) or not data['result'].get('status')):
                     continue
                 if data['state'] in {'queued','running'}:
                     data.update(state='failed', message='The app closed before analysis finished. Please analyse the clip again.')
@@ -76,8 +88,10 @@ def browser_preview(source, folder):
     capture=cv2.VideoCapture(str(source))
     ok,frame=capture.read();capture.release()
     if ok:cv2.imwrite(str(folder/'poster.jpg'),frame)
+    # Browser-compatible H.264 needs an even width as well as an even height.
+    preview_scale = "scale=w='max(2,trunc(min(1280,iw)/2)*2)':h=-2"
     command=[imageio_ffmpeg.get_ffmpeg_exe(),'-nostdin','-y','-i',str(source),'-map','0:v:0','-map','0:a?',
-        '-vf',"scale=w='min(1280,iw)':h=-2",'-c:v','libx264','-preset','veryfast','-crf','23','-pix_fmt','yuv420p',
+        '-vf',preview_scale,'-c:v','libx264','-preset','veryfast','-crf','23','-pix_fmt','yuv420p',
         '-c:a','aac','-b:a','96k','-movflags','+faststart',str(folder/'preview.mp4')]
     result=subprocess.run(command,capture_output=True,text=True,timeout=600)
     if result.returncode or not (folder/'preview.mp4').is_file():
@@ -219,8 +233,14 @@ def create_app(project_root=ROOT, storage_root=None, runner=None, previewer=None
     def review(job_id):
         job=get_job(job_id)
         if job['state']!='complete':abort(409,description='Wait for the analysis to finish.')
-        data=request.get_json(silent=True) or {};choice=data.get('decision');segment_id=data.get('segment_id')
+        data = request.get_json(silent=True)
+        if not isinstance(data, dict):
+            abort(400, description='Send the review as a JSON object.')
+        choice = data.get('decision')
+        segment_id = data.get('segment_id')
         if not isinstance(choice,str) or choice not in REVIEW_CHOICES:abort(400,description='Choose suspected action, not visible, or unclear.')
+        if segment_id is not None and (not isinstance(segment_id, str) or not segment_id):
+            abort(400, description='Select a valid suggested segment or review the full clip.')
         segment=next((s for s in job['suggestions'] if str(s['id'])==str(segment_id)),None) if segment_id else None
         if segment_id and not segment:abort(400,description='Select a valid suggested segment.')
         notes=data.get('notes','')

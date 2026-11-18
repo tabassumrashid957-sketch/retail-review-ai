@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -17,7 +18,20 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from scripts.download_data import SHA256 as DATASET_SHA256, SIZE as DATASET_SIZE
 from scripts.verify_project import check_encoder, inspect_data
-from shoplifting.data_config import active_dataset, rebase_manifest
+from shoplifting.data_config import active_dataset, local_clip_path, rebase_manifest
+
+
+def manifest_clips_missing(manifest: Path, root: Path, config: dict) -> bool:
+    """Tracked metadata can exist even when a clone omits its video files."""
+    if not manifest.is_file():
+        return True
+    with manifest.open(newline="", encoding="utf-8") as stream:
+        for row in csv.DictReader(stream):
+            try:
+                local_clip_path(row, root, config)
+            except FileNotFoundError:
+                return True
+    return False
 
 
 def canonical_interpreter(project_root: Path) -> str:
@@ -131,7 +145,7 @@ def run_pipeline(*, project_root: Path = PROJECT_ROOT, data_dir: Path | None = N
         manifest_path = Path(manifest_path).resolve() if manifest_path else root / config["manifest"]
         if download_data:
             subprocess.run([interpreter, str(root / "scripts/download_ucf_crime.py")], cwd=root, check=True)
-        if not manifest_path.is_file():
+        if manifest_clips_missing(manifest_path, root, config):
             if not any((root / config["source_dir"]).glob("*.mp4")):
                 raise ValueError("The real-retail source videos are missing. Restore the complete project or explicitly use --download-data.")
             if config.get("preparation") == "whole_event_context":

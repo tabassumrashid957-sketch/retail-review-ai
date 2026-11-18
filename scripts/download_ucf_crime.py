@@ -126,6 +126,7 @@ def download_member(record: dict, destination: Path, *, opener=urllib.request.ur
     compressed_path = output.with_suffix(".deflate.part")
     last_error = None
     for attempt in range(retries):
+        decoding = False
         try:
             header_offset = int(record["header_offset"])
             with open_range(header_offset, header_offset + 29, opener=opener) as response:
@@ -133,6 +134,7 @@ def download_member(record: dict, destination: Path, *, opener=urllib.request.ur
             beginning = payload_start(header, record)
             compressed_size = int(record["compressed_size"])
             download_compressed(beginning, compressed_size, compressed_path, opener=opener, retries=retries)
+            decoding = True
             packed_read, bytes_written, crc = 0, 0, 0
             digest = hashlib.sha256()
             decoder = zlib.decompressobj(-15)
@@ -166,6 +168,11 @@ def download_member(record: dict, destination: Path, *, opener=urllib.request.ur
         except (OSError, ValueError, zlib.error, http.client.HTTPException, RuntimeError) as error:
             last_error = error
             temporary.unlink(missing_ok=True)
+            if decoding and isinstance(error, (ValueError, zlib.error)):
+                # A complete but invalid compressed member cannot be resumed.
+                # Transport interruptions occur before decoding and retain the
+                # already received prefix for the next range request.
+                compressed_path.unlink(missing_ok=True)
             if attempt + 1 < retries:
                 time.sleep(min(2 ** attempt, 4))
     raise RuntimeError(f"Could not obtain verified {record['file']}: {last_error}")

@@ -1,6 +1,7 @@
 """Offline checks for setup diagnostics and non-destructive pipeline orchestration."""
 
 from contextlib import ExitStack
+import csv
 import json
 from pathlib import Path
 import subprocess
@@ -61,6 +62,66 @@ class VerificationTests(unittest.TestCase):
 
 
 class PipelineTests(unittest.TestCase):
+    def context_fixture(self, root, *, clips_present=False):
+        config = {"schema_version": 1, "name": "context fixture", "kind": "ucf_crime",
+                  "manifest": "data/context/manifest.csv", "provenance": "data/provenance.json",
+                  "source_dir": "data/sources", "clips_dir": "data/context/clips",
+                  "annotations": "data/annotations.txt", "feature_dir": "artifacts/features-context",
+                  "preparation": "whole_event_context", "split_reference": "data/context/source_splits.json"}
+        manifest = root / config["manifest"]
+        manifest.parent.mkdir(parents=True)
+        (root / "data/active_dataset.json").write_text(json.dumps(config))
+        (root / config["split_reference"]).write_text('{"records": []}')
+        sources = root / config["source_dir"]
+        sources.mkdir(); (sources / "source.mp4").write_bytes(b"source fixture")
+        rows = [{"id": name, "path": f"/previous/laptop/{name}.mp4", "label": str(label),
+                 "group": "ucf:source.mp4", "split": "train"}
+                for name, label in [("normal", 0), ("positive", 1)]]
+        with manifest.open("w", newline="") as stream:
+            writer = csv.DictWriter(stream, fieldnames=list(rows[0])); writer.writeheader(); writer.writerows(rows)
+        def restore_clips():
+            for row in rows:
+                category = "Normal" if row["label"] == "0" else "Shoplifting"
+                path = root / config["clips_dir"] / category / f"{row['id']}.mp4"
+                path.parent.mkdir(parents=True, exist_ok=True); path.write_bytes(b"clip fixture")
+        if clips_present:
+            restore_clips()
+        return config, rows, restore_clips
+
+    def test_existing_context_manifest_restores_missing_clips_before_rebase(self):
+        for allow_download in (False, True):
+            with self.subTest(download_data=allow_download), tempfile.TemporaryDirectory() as temporary:
+                root = self.make_root(temporary)
+                config, original_rows, restore_clips = self.context_fixture(root)
+                calls = []
+                def subprocess_run(command, **kwargs):
+                    calls.append(command)
+                    if Path(command[1]).name == "prepare_ucf_context.py":
+                        self.assertEqual(command[command.index("--splits") + 1], str(root / config["split_reference"]))
+                        self.assertEqual(command[command.index("--output") + 1], str((root / config["manifest"]).parent))
+                        restore_clips()
+                    return subprocess.CompletedProcess(command, 0, "{}", "")
+                with self.runtime_mocks(), patch.object(pipeline.subprocess, "run", side_effect=subprocess_run), \
+                     patch.object(pipeline, "run_step", side_effect=lambda title, command, cwd, log: self.write_candidate(command)):
+                    pipeline.run_pipeline(project_root=root, download_data=allow_download)
+                self.assertEqual(sum(Path(command[1]).name == "prepare_ucf_context.py" for command in calls), 1)
+                self.assertEqual(sum(Path(command[1]).name == "download_ucf_crime.py" for command in calls), int(allow_download))
+                with (root / config["manifest"]).open() as stream:
+                    restored = list(csv.DictReader(stream))
+                for previous, current in zip(original_rows, restored):
+                    self.assertEqual({key: current[key] for key in ("id", "label", "group", "split")},
+                                     {key: previous[key] for key in ("id", "label", "group", "split")})
+                    self.assertTrue(Path(current["path"]).is_file())
+
+    def test_existing_context_clips_do_not_trigger_repreparation(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = self.make_root(temporary)
+            self.context_fixture(root, clips_present=True)
+            with self.runtime_mocks(), patch.object(pipeline, "run_step", side_effect=lambda title, command, cwd, log: self.write_candidate(command)):
+                pipeline.run_pipeline(project_root=root)
+                calls = pipeline.subprocess.run.call_args_list
+                self.assertFalse(any("prepare_ucf_context.py" in str(call) for call in calls))
+
     def make_root(self, temporary):
         root = Path(temporary) / "project with spaces"
         interpreter = root / ".venv/bin/python"

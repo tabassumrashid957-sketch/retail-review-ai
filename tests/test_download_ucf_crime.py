@@ -37,6 +37,49 @@ def fixture():
 
 
 class DownloadTests(unittest.TestCase):
+    def test_corrupt_complete_cache_is_refetched_after_decode_failure(self):
+        data, record, header, original = fixture()
+        corrupt_payloads = [b"x" * record["compressed_size"],
+                            b"\x03\x00" + b"\x00" * (record["compressed_size"] - 2)]
+        for payload in corrupt_payloads:
+            with self.subTest(payload=payload[:2]), tempfile.TemporaryDirectory() as directory:
+                output = Path(directory)
+                cached = output / Path(record["file"]).with_suffix(".deflate.part")
+                cached.write_bytes(payload)
+                ranges = []
+                def opener(request, **kwargs):
+                    ranges.append(request.headers["Range"])
+                    return original(request, **kwargs)
+                with patch("scripts.download_ucf_crime.time.sleep"):
+                    result = download_member(record, output, opener=opener, retries=2)
+                self.assertFalse(result["cached"])
+                self.assertEqual((output / record["file"]).read_bytes(), data)
+                self.assertEqual(sum(value == "bytes=100-129" for value in ranges), 2)
+                self.assertEqual(len(ranges), 3)
+                self.assertFalse(cached.exists())
+
+    def test_transport_failure_retains_compressed_prefix_for_resume(self):
+        data, record, header, original = fixture()
+        encoder = zlib.compressobj(wbits=-15)
+        compressed = encoder.compress(data) + encoder.flush()
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory)
+            cached = output / Path(record["file"]).with_suffix(".deflate.part")
+            prefix = compressed[:10]
+            cached.write_bytes(prefix)
+            ranges = []
+            def interrupted(request, **kwargs):
+                ranges.append(request.headers["Range"])
+                if request.headers["Range"] == "bytes=100-129":
+                    return original(request, **kwargs)
+                raise OSError("temporary connection failure")
+            with self.assertRaisesRegex(RuntimeError, "temporary connection failure"):
+                download_member(record, output, opener=interrupted, retries=1)
+            self.assertEqual(cached.read_bytes(), prefix)
+            payload_start_offset = 100 + 30 + len(record["file"].encode())
+            self.assertEqual(ranges[-1], f"bytes={payload_start_offset+len(prefix)}-{payload_start_offset+len(compressed)-1}")
+            self.assertFalse((output / record["file"]).exists())
+
     def test_compressed_transfer_resumes_and_retries_only_complete_chunks(self):
         payload = bytes(range(200))
         calls = []

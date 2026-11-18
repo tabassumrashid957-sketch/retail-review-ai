@@ -170,7 +170,8 @@ def collect_files(root: str | Path) -> list[Path]:
         raise ValueError(f"Project directory not found: {root}")
     files: set[Path] = set()
     for directory in ("shoplifting", "scripts", "tests"):
-        files.update(_walk_selected(root, directory, {".py"}))
+        suffixes = {".py", ".js"} if directory == "tests" else {".py"}
+        files.update(_walk_selected(root, directory, suffixes))
     files.update(_walk_selected(root, "ui", {".html", ".css", ".js", ".svg"}))
     # The UI is the sole shared run entry. Old configurations left in copied
     # folders must not reintroduce separate demo/chooser flows into an export.
@@ -202,6 +203,16 @@ def collect_files(root: str | Path) -> list[Path]:
     # render checks, temporary pages or compiler intermediates.
     for path in _walk_selected(root, "report_support", {".docx", ".md", ".tex", ".bib", ".cls", ".bst", ".sty", ".png", ".jpg", ".jpeg", ".svg"}):
         if not path.name.lower().startswith(("page-", "page_", "render-", "preview", "thumbnail", "qa-", "overlay-check")):
+            files.add(path)
+    # LaTeX uses the vector PDF plots directly, so an export must retain them.
+    # Include the current review copy without collecting old template/QA PDFs.
+    current_reports = {
+        root / "report_support/Retail_Review_AI_Draft.pdf",
+        root / "report_support/Report_Preparation/output/pdf/Retail_Review_AI_Draft.pdf",
+    }
+    for path in _walk_selected(root, "report_support", {".pdf"}):
+        relative = path.relative_to(root / "report_support")
+        if "figures" in relative.parts or path in current_reports:
             files.add(path)
     for path in root.iterdir():
         if path.name == ".gitignore" or path.name.startswith(("README", "LICENSE", "NOTICE", "COPYING")) or (path.name.startswith("requirements") and path.suffix == ".txt") or path.suffix in {".command", ".py"}:

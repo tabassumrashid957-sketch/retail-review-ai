@@ -38,6 +38,31 @@ def fixture_project(root):
 
 
 class PackageProjectTests(unittest.TestCase):
+    def test_report_pdf_figures_and_current_draft_are_preserved(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            fixture_project(root)
+            included = [
+                "report_support/Report_Preparation/figures/binary-confusion.pdf",
+                "report_support/Report_Preparation/figures/selective-outcomes.pdf",
+                "report_support/Retail_Review_AI_Draft.pdf",
+                "report_support/Report_Preparation/output/pdf/Retail_Review_AI_Draft.pdf",
+            ]
+            excluded = [
+                "report_support/Report_Preparation/sources/coursework-brief.pdf",
+                "report_support/Report_Preparation/output/pdf/main.pdf",
+                "report_support/qa/page-1.pdf",
+            ]
+            for name in included + excluded:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(b"PDF fixture")
+            with zipfile.ZipFile(build_package(root)) as archive:
+                for name in included:
+                    self.assertEqual(archive.read(f"{ARCHIVE_ROOT}/{name}"), b"PDF fixture")
+                for name in excluded:
+                    self.assertNotIn(f"{ARCHIVE_ROOT}/{name}", archive.namelist())
+
     def test_only_ui_entry_is_packaged_even_when_old_launchers_and_configs_remain(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
